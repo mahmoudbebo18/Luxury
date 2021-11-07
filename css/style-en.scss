@@ -576,6 +576,7 @@ footer {
                 padding: 10px;
                 box-shadow: 0 0 5px #c3c3c3;
                 border-radius: 5px;
+                background-color: rgba(151, 116, 71, 0.3);
                 h6 {
                     font-weight: bold;
                     font-size: 18px;
@@ -623,23 +624,87 @@ footer {
 .legal-page-footer {
     padding-top: 20px !important;
 }
-
+// Join us
 .join {
+  
+    text-align: center;
     padding: 50px 0;
-    form {
-        padding: 20px;
-        background: rgba(162, 144, 97, 30%);
-        border-radius: 5px;
-        label {
-            color: $darkBg
-        }
-        button {
-            background-color: $darkBg;
-            border-color: $darkBg;
-        }
+    padding-top: 120px;
+    h2{
+      color: $darkBg;
+      font-size: 36px;
+  
     }
-}
-
+    p{
+        font-size: 18px;
+        color:$mainHead
+    }
+    form {
+      padding: 20px;
+      background: rgba(162, 144, 97, 30%);
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      max-width: 500px;
+      flex-wrap: wrap;
+      margin: auto;
+      .form-group {
+        flex-basis: 100%;
+        max-width: 100%;
+        position: relative;
+        svg {
+          position: absolute;
+          height: 46px;
+          top: 0;
+          background-color: #4a5644;
+          left: 0;
+          width: 46px;
+          padding: 10px;
+          border-radius: 5px 0px 0px 5px;
+        }
+        input {
+          padding: 10px;
+          background-color: #eae8e5;
+          padding-inline-start: 55px;
+          border-radius: 5px;
+          &:focus{
+              box-shadow: none;
+              outline: none;
+          }
+          &::placeholder {
+            color: $mainHead;
+            font-size: 15px;
+          }
+        }
+      }
+      .message {
+        svg {
+          background-color: transparent;
+        }
+        textarea {
+          padding-inline-start: 45px;
+          background-color: #eae8e5;
+          &::placeholder {
+            color: $mainHead;
+            font-size: 15px;
+          }
+        }
+      }
+      label {
+        color: $darkBg;
+      }
+      button {
+        background-color: $darkBg;
+        border-color: $darkBg;
+        transition: 0.3s;
+        &:hover {
+          border-color: $darkBg;
+          background-color: transparent;
+          color: $darkBg;
+        }
+      }
+    }
+  }
 .service-nav {
     background-color: $darkBg;
 }

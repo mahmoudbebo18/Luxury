@@ -17,111 +17,151 @@
 
 <body>
     <!-- start Nav -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav style="background-color: #4a5644;" class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img src="imgs/logo.svg" width="120px" height="50px" style="object-fit: cover;">
+          <img
+            src="imgs/logo.svg"
+            width="120px"
+            height="50px"
+            style="object-fit: cover"
+          />
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
         </button>
-
+  
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"> About Us <span class="sr-only">(current)</span></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Our Message</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Our Vesion</a>
-                </li>
-                <li class="nav-item logo-holder" style="padding:0 !important">
-                    <a class="nav-link logo" href="#">
-                        <img src="imgs/logo.svg" width="150px" height="80px" style="object-fit: cover;">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Why Us </a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Devisions
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Members Club </a>
-                        <a class="dropdown-item" href="#"> Members Services</a>
-
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="imgs/england.png" width="20px" height="20px">English
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-                        <a class="dropdown-item" href="join-us.html">
-                            <img src="imgs/arabic-flag.png" width="20px" height="20px">Arabic
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a data-target="ab" class="nav-link" href="#">
+                About Us <span class="sr-only">(current)</span></a
+              >
+            </li>
+  
+            <li class="nav-item">
+              <a data-target="ms" class="nav-link" href="#">Our Message</a>
+            </li>
+  
+            <li class="nav-item">
+              <a data-target="vi" class="nav-link" href="#">Our Vesion</a>
+            </li>
+            <li class="nav-item logo-holder" style="padding: 0 !important">
+              <a class="nav-link logo" href="#">
+                <img
+                  src="imgs/logo.svg"
+                  width="150px"
+                  height="80px"
+                  style="object-fit: cover"
+                />
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-target="wu" class="nav-link" href="#">Why Us </a>
+            </li>
+  
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Devisions
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a data-target="mc" class="dropdown-item" href="#"
+                  >Members Club
+                </a>
+                <a data-target="ss" class="dropdown-item" href="services-en.html">
+                  Members Services</a
+                >
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img src="imgs/england.png" width="20px" height="20px" />English
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html">
+                  <img
+                    src="imgs/arabic-flag.png"
+                    width="20px"
+                    height="20px"
+                  />Arabic
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
-    </nav>
-
-    <!--// End nav-->
-
-    <!-- Start slider -->
-
-    <section class="slider">
-        <div class="shape-left"></div>
-        <div class="shape-right"></div>
-        <div class="luxury">
-            <h1 class="text-uppercase"> the luxury club</h1>
-            <div class="gold-link"><span class="gold-line gold-left"></span><a class="fancybox lsb-text-overlay-link" href="#">عرض المزيد </a><span class="gold-line gold-right"></span></div>
-        </div>
-
-    </section>
-    <!-- // end slider -->
-
+      </nav>
+  
+      <!--// End nav-->
     <!-- start join us -->
 
     <section class="join">
-        <div class="container-fluid">
-            <form class="text-left">
+        <div class="container">
+            <h2>Contact Us  </h2>
+            <p>Keep in Touch ....  </p>
+            <form class="text-right">
                 <div class="form-group">
-                    <label>Name </label>
-                    <input type="text" class="form-control">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a29061" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      </svg>
+                    <input type="text" class="form-control" placeholder="Name">
                 </div>
                 <div class="form-group">
-                    <label>Email </label>
-                    <input required type="email" class="form-control">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-at" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a29061" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+                      </svg>
+                    <input type="text" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label>Phone </label>
-                    <input type="number" class="form-control">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a29061" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="7" y="4" width="10" height="16" rx="1" />
+                        <line x1="11" y1="5" x2="13" y2="5" />
+                        <line x1="12" y1="17" x2="12" y2="17.01" />
+                      </svg>
+                    <input type="number" class="form-control" placeholder="Phone">
                 </div>
-                <div class="form-group">
-                    <label>Password </label>
-                    <input required type="password" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password </label>
-                    <input required type="password" class="form-control">
+                <div class="form-group message">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-forward" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a29061" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5" />
+                        <path d="M3 6l9 6l9 -6" />
+                        <path d="M15 18h6" />
+                        <path d="M18 15l3 3l-3 3" />
+                      </svg>
+                    <textarea type="text" class="form-control" placeholder="Message  "></textarea>
                 </div>
                 <div class="accept-terms d-flex">
                     <input required type="checkbox">
-                    <a href="terms-en.html">I Accept all the Terms and Conditions
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="terms .html">I Accept terms and Conditions  <i class="fas fa-arrow-right"></i> </a>
                 </div>
+
                 <button class="btn btn-primary form-control">Send</button>
             </form>
         </div>
@@ -132,7 +172,7 @@
     <!-- footer-->
     <footer>
         <div class="footer-cont">
-            <h3> Download The App </h3>
+            <h3>تحميل التطبيق </h3>
             <div class="download d-flex">
                 <img src="imgs/app.svg" width="200px" height="60px">
                 <img src="imgs/google.png" width="200px" height="60px">
