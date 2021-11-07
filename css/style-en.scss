@@ -860,3 +860,18 @@ footer {
 .wa-chat-box-content-send-btn{
     background-color: $darkBg !important;
 }
+
+
+.my-alert {
+    background: transparent;
+    border: none;
+    color: #c43232;
+    text-align: end;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    padding-inline-end: 0;
+    padding-top: 5px;
+    padding-bottom: 0;
+    display: none;
+  }
