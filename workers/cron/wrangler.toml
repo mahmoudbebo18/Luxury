@@ -1,0 +1,12 @@
+name = "luxury-cron"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+SUPABASE_URL = "https://fujlvpypeumbnyhoqmni.supabase.co"
+SUPABASE_ANON_KEY = "sb_publishable_5wZbB3UrkKXKTI163w2A7A_ZQBezeJp"
+# Secret (wrangler secret put): CRON_SECRET

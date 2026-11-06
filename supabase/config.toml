@@ -1,0 +1,8 @@
+project_id = "fujlvpypeumbnyhoqmni"
+
+# Called by MyFatoorah (signed) and by the cron Worker (x-cron-secret): no user JWT.
+[functions.myfatoorah-webhook]
+verify_jwt = false
+
+[functions.process-email-queue]
+verify_jwt = false
