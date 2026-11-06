@@ -1542,6 +1542,15 @@ export type Database = {
         Args: { p_company: string; p_email: string }
         Returns: undefined
       }
+      admin_company_adjust: {
+        Args: {
+          p_add_days: number
+          p_add_seats: number
+          p_company: string
+          p_note?: string
+        }
+        Returns: Json
+      }
       admin_create_campaign: {
         Args: {
           p_audience: string
@@ -1551,9 +1560,23 @@ export type Database = {
         }
         Returns: string
       }
+      admin_create_company_order: {
+        Args: {
+          p_company: string
+          p_notes?: string
+          p_quantity: number
+          p_type: string
+          p_unit_price: number
+        }
+        Returns: Json
+      }
       admin_grant_membership: {
         Args: { p_days: number; p_member: string; p_note?: string }
         Returns: string
+      }
+      admin_mark_refunded: {
+        Args: { p_note?: string; p_order: string }
+        Returns: undefined
       }
       admin_price_quote: {
         Args: {
@@ -1572,6 +1595,7 @@ export type Database = {
         Args: { p_body: string; p_id: string; p_type: string }
         Returns: undefined
       }
+      admin_send_payment_link: { Args: { p_order: string }; Returns: undefined }
       admin_set_active: {
         Args: { p_active: boolean; p_member: string }
         Returns: undefined

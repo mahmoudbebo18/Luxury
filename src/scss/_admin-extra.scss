@@ -1,0 +1,182 @@
+@use 'tokens' as *;
+
+// Luxury touches on the admin panel copied from Dasman.
+
+// The Luxury arrow points left (forward in Arabic); "back" arrows point right.
+[dir='rtl'] .icon-back {
+  transform: scaleX(-1);
+}
+
+.adm .brand-mark {
+  display: block;
+  height: auto;
+  aspect-ratio: 577 / 172;
+  color: var(--champagne-400);
+}
+.adm-logo .brand-mark {
+  width: 96px;
+}
+.adm-top-logo .brand-mark {
+  width: 84px;
+  color: var(--champagne-700);
+}
+
+.adm-notes {
+  display: grid;
+  gap: 10px;
+  margin-block-end: 18px;
+}
+
+.stat-value small {
+  font-size: 0.55em;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+// payment link with a copy button
+.link-row {
+  display: flex;
+  gap: 8px;
+  .ui-input {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.8rem;
+  }
+}
+
+// company price tiers
+.tiers {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.tier-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  .ui-input {
+    width: 84px;
+    min-height: 40px;
+    padding-block: 6px;
+    text-align: center;
+  }
+}
+.tier-price {
+  color: var(--text-mute, #6b6e5e);
+  font-size: 0.85rem;
+}
+
+// site content editor
+.content-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-block-end: 14px;
+  .text-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.md-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-block-end: 8px;
+  button {
+    min-height: 34px;
+    padding: 4px 12px;
+    border: 1px solid rgb(125 97 54 / 0.25);
+    border-radius: 999px;
+    background: transparent;
+    font-size: 0.82rem;
+    cursor: pointer;
+    &:hover {
+      background: rgb(125 97 54 / 0.08);
+    }
+  }
+}
+
+.md-preview {
+  max-width: 46rem;
+  padding: 8px 4px;
+  line-height: 1.85;
+  color: #3d4535;
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-block-end: 1rem;
+    color: #12160e;
+  }
+  h2 {
+    margin-block: 1.75rem 0.6rem;
+    padding-block-start: 1.25rem;
+    border-top: 1px solid rgb(18 22 14 / 0.08);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #12160e;
+  }
+  h3 {
+    margin-block: 1.25rem 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+  p,
+  ul,
+  ol {
+    margin-block: 0.6rem;
+  }
+  ul,
+  ol {
+    padding-inline-start: 1.4rem;
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  li + li {
+    margin-block-start: 0.35rem;
+  }
+  strong {
+    color: #12160e;
+    font-weight: 600;
+  }
+  a {
+    color: #7d6136;
+    text-decoration: underline;
+  }
+  mark.pending {
+    padding: 0.05em 0.35em;
+    border-radius: 4px;
+    background: rgb(227 183 101 / 0.25);
+    color: #7a5512;
+  }
+}
+
+// "num" on table cells means a number column here, not the display serif of the public site.
+.adm .dtable .num {
+  font-family: inherit;
+}
+
+// Dasman's base reset buttons; Luxury's doesn't. Zero specificity, so any class style still wins.
+:where(.adm) button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.actions-list > button:disabled {
+  cursor: not-allowed;
+}
+
+.sender .surface-title:not(:first-child) {
+  margin-block-start: 30px;
+  padding-block-start: 22px;
+  border-top: 1px solid rgb(18 22 14 / 0.07);
+}
