@@ -1,26 +1,24 @@
-// Platform entry (React). Placeholder until phase 2 (accounts, company portal, admin).
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import '@fontsource/ibm-plex-sans-arabic/300.css';
 import '@fontsource/ibm-plex-sans-arabic/400.css';
-import '../scss/site.scss';
+import '@fontsource/ibm-plex-sans-arabic/500.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-600.css';
+import '../scss/platform.scss';
+import { App } from './App';
 
-function ComingSoon() {
-  return (
-    <main className="section" style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', textAlign: 'center' }}>
-      <div style={{ display: 'grid', gap: '1.5rem', justifyItems: 'center' }}>
-        <a className="brand" href="/" aria-label="The Luxury Club">
-          <svg style={{ width: 180 }} aria-hidden="true"><use href="/imgs/icons.svg#logo" /></svg>
-        </a>
-        <h1 style={{ fontSize: 'var(--fs-2xl)' }}>المنصة قيد الإعداد</h1>
-        <a className="btn btn-ghost" href="/">العودة للرئيسية</a>
-      </div>
-    </main>
-  );
-}
+document.body.classList.add('platform');
+
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: 30_000, retry: 1, refetchOnWindowFocus: false } },
+});
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ComingSoon />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </StrictMode>,
 );

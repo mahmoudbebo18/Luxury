@@ -1,0 +1,14 @@
+// Platform entry (app.html): the public design system plus the UI copied from Dasman on top of a
+// compatibility layer (colours, breakpoints).
+@use 'tokens';
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'compat';
+@use 'ui';
+@use 'auth';
+@use 'app';
+@use 'services';
+@use 'admin';
+@use 'platform-extra';
+@use 'platform-pages';

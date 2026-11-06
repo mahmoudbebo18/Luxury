@@ -1,0 +1,142 @@
+// Bridge for the UI copied from Dasman (_ui, _auth, _app, _services, _admin): its breakpoint mixin,
+// and its colour names mapped onto the Luxury palette. The platform is ivory (light) for long forms
+// and tables; header, footer and brand panels stay in the dark "lounge" look of the public site.
+@use 'tokens' as *;
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@mixin up($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// Dark scope: header, drawer, footer, auth brand panel.
+@mixin lounge {
+  --bg: var(--forest-900);
+  --bg-deep: var(--ink-950);
+  --surface: var(--forest-800);
+  --surface-2: var(--forest-700);
+  --text: var(--ivory-50);
+  --text-soft: var(--ivory-300);
+  --text-mute: var(--mute-400);
+  --accent: var(--champagne-400);
+  --accent-strong: var(--champagne-300);
+  --line: rgb(205 171 112 / 0.18);
+  --line-strong: rgb(205 171 112 / 0.4);
+  --line-soft: rgb(247 243 234 / 0.08);
+  color-scheme: dark;
+  color: var(--text);
+}
+
+:root {
+  // Dasman names → Luxury palette
+  --olive-950: #0b0e09;
+  --olive-900: #12160e;
+  --olive-800: #1c2316;
+  --olive-700: #26301e;
+  --olive-600: #354229;
+  --olive-500: #4f5b3c;
+  --olive-100: #ebeae0;
+  --sand-50: #faf7f0;
+  --sand-100: #f2ecdf;
+  --sand-200: #e5dcc8;
+  --sand-300: #d2c6ad;
+  --gold-300: #e0c796;
+  --gold-400: #cdab70;
+  --gold-500: #b8935a;
+  --gold-700: #7d6136;
+  --ink: #12160e;
+  --muted: #6b6e5e;
+  --white: #fff;
+  --error: #b23b3b;
+  --radius: 18px;
+  --shadow-sm: 0 10px 28px -18px rgb(11 14 9 / 0.35);
+  --shadow: 0 30px 60px -34px rgb(11 14 9 / 0.5);
+  --dir: 1;
+
+  // Light (ivory) semantics for the platform pages
+  --bg: var(--sand-50);
+  --text: #3d4535;
+  --text-soft: #4c5443;
+  --text-mute: #6b6e5e;
+  --accent: var(--gold-700);
+  --accent-strong: #5f4a28;
+  --line-soft: rgb(18 22 14 / 0.08);
+  color-scheme: light;
+}
+
+[dir='rtl'] {
+  --dir: -1;
+}
+
+body.platform {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.site-header,
+.drawer,
+.site-footer {
+  @include lounge;
+}
+
+// The platform header sits on light pages: solid from the start.
+.site-header.is-solid {
+  height: var(--header-h-scrolled);
+  background: var(--bg-deep);
+  border-color: var(--line-soft);
+}
+
+.app-main {
+  min-height: calc(100vh - var(--header-h-scrolled));
+  padding-top: var(--header-h-scrolled);
+}
+
+// Dasman button names
+.btn-primary {
+  --btn-bg: var(--olive-900);
+  --btn-fg: var(--ivory-50);
+  --btn-bd: var(--olive-900);
+  &:hover {
+    --btn-bg: var(--olive-700);
+    --btn-bd: var(--olive-700);
+  }
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+// Icons from Dasman draw with stroke only (the Luxury ones carry their own stroke attributes).
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// Dasman flips "forward" icons in RTL; the Luxury arrow already points left (forward in Arabic).
+[dir='ltr'] .icon-flip {
+  transform: scaleX(-1);
+}
+
+.eyebrow--light {
+  color: var(--champagne-300);
+}
+
+.page {
+  padding-block: clamp(2rem, 1.5rem + 2vw, 3.5rem) 4rem;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
