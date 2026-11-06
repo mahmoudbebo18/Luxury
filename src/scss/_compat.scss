@@ -140,3 +140,11 @@ body.platform {
 .nowrap {
   white-space: nowrap;
 }
+
+// Dasman's base reset buttons and Luxury's doesn't: without this, tabs and other class-less-border
+// buttons get the browser's dark outset border. Zero specificity, so every class style still wins.
+:where(button) {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}

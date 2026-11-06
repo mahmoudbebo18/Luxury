@@ -165,12 +165,6 @@
   font-family: inherit;
 }
 
-// Dasman's base reset buttons; Luxury's doesn't. Zero specificity, so any class style still wins.
-:where(.adm) button {
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
 .actions-list > button:disabled {
   cursor: not-allowed;
 }
