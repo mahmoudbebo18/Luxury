@@ -1,0 +1,38 @@
+/app
+  X-Robots-Tag: noindex, nofollow
+/app.html
+  X-Robots-Tag: noindex, nofollow
+/login
+  X-Robots-Tag: noindex, nofollow
+/register*
+  X-Robots-Tag: noindex, nofollow
+/forgot
+  X-Robots-Tag: noindex, nofollow
+/reset
+  X-Robots-Tag: noindex, nofollow
+/check-email
+  X-Robots-Tag: noindex, nofollow
+/join/*
+  X-Robots-Tag: noindex, nofollow
+/checkout
+  X-Robots-Tag: noindex, nofollow
+/payment/*
+  X-Robots-Tag: noindex, nofollow
+/account*
+  X-Robots-Tag: noindex, nofollow
+/company*
+  X-Robots-Tag: noindex, nofollow
+/v/*
+  X-Robots-Tag: noindex, nofollow
+/admin*
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/imgs/*
+  Cache-Control: public, max-age=604800

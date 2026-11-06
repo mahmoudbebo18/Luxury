@@ -1,0 +1,8 @@
+# Secrets (API tokens) live in .env.local. The committed .env holds public keys only.
+*.local
+node_modules/
+dist/
+.wrangler/
+supabase/.temp/
+supabase/import/
+*.tsbuildinfo

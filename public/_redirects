@@ -1,0 +1,32 @@
+# Old 2021 site URLs
+/index-en.html         /en/            301
+/index-en              /en/            301
+/services-en.html      /en/services    301
+/services-en           /en/services    301
+/terms%20.html         /terms          301
+/terms-en.html         /en/terms       301
+/terms-en              /en/terms       301
+/club-rules.html       /rules          301
+/club-rules            /rules          301
+/club-rules-en.html    /en/rules       301
+/club-rules-en         /en/rules       301
+/join-us.php           /register       301
+/join-en.php           /register?lang=en 301
+
+# Platform (React, app.html)
+/login         /app  200
+/register      /app  200
+/register/*    /app  200
+/forgot        /app  200
+/reset         /app  200
+/check-email   /app  200
+/join/*        /app  200
+/checkout      /app  200
+/payment/*     /app  200
+/account       /app  200
+/account/*     /app  200
+/company       /app  200
+/company/*     /app  200
+/v/*           /app  200
+/admin         /app  200
+/admin/*       /app  200

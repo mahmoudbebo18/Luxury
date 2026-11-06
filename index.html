@@ -1,426 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Meta for chorom inspect -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
-    <title>Mobile</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/hamburgers.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Luxury Club | عضوية الخدمات الخاصة للأفراد والشركات</title>
+    <meta name="description" content="عضوية سنوية بـ 699 ريالًا شاملة الضريبة: استشارات قانونية، ومساعدة على الطريق، وتأشيرات سفر. للأفراد والشركات في المملكة العربية السعودية." />
+    <link rel="canonical" href="https://the-luxury-club.com/" />
+    <link rel="alternate" hreflang="ar" href="https://the-luxury-club.com/" />
+    <link rel="alternate" hreflang="en" href="https://the-luxury-club.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://the-luxury-club.com/" />
+    <meta name="theme-color" content="#0b0e09" />
+    <link rel="icon" href="/imgs/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Luxury Club" />
+    <meta property="og:locale" content="ar_SA" />
+    <meta property="og:title" content="The Luxury Club | عضوية الخدمات الخاصة" />
+    <meta property="og:description" content="استشارات قانونية، ومساعدة على الطريق، وتأشيرات سفر في عضوية واحدة. للأفراد والشركات." />
+    <meta property="og:url" content="https://the-luxury-club.com/" />
+    <meta property="og:image" content="https://the-luxury-club.com/imgs/og.jpg" />
+    <link rel="preload" as="image" href="/imgs/lounge-candles-840.webp" imagesrcset="/imgs/lounge-candles-480.webp 480w, /imgs/lounge-candles-840.webp 840w" imagesizes="(min-width: 960px) 420px, 90vw" />
+    <script type="module" src="/src/site/main.ts"></script>
   </head>
-
   <body>
-    <!-- start Nav -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
-        <img
-          src="imgs/logo.svg"
-          width="120px"
-          height="50px"
-          style="object-fit: cover"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
+    <!-- @include header-ar -->
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a data-target="ab" class="nav-link" href="#"
-              >نبذة عنا <span class="sr-only">(current)</span></a
-            >
-          </li>
-
-          <li class="nav-item">
-            <a data-target="ms" class="nav-link" href="#">رسالتنا</a>
-          </li>
-
-          <li class="nav-item">
-            <a data-target="vi" class="nav-link" href="#">رؤيتنا</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link logo" href="#">
-              <img
-                src="imgs/logo.svg"
-                width="120px"
-                height="50px"
-                style="object-fit: cover"
-              />
-            </a>
-          </li>
-          <li class="nav-item">
-            <a data-target="wu" class="nav-link" href="#">لماذا نحن </a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              الاقسام
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a data-target="mc" class="dropdown-item" href="#"
-                >نادي الاعضاء</a
-              >
-              <a data-target="ss" class="dropdown-item" href="services.html">
-                خدمات الاعضاء</a
-              >
+    <main id="main">
+      <!-- ============================================================ Hero -->
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__text">
+            <span class="eyebrow" data-reveal>نادي عضوية خاص · المملكة العربية السعودية</span>
+            <h1 class="hero__title" data-reveal style="--d: 1">عضويةٌ واحدة،<br />وخدماتٌ <em>تُنجَز عنك.</em></h1>
+            <p class="hero__lead" data-reveal style="--d: 2">استشاراتك القانونية، ومساعدتك على الطريق، وتأشيرات سفرك، في عضوية سنوية واحدة. لك، أو لفريق شركتك بالكامل.</p>
+            <div class="price-chip" data-reveal style="--d: 3"><strong class="num">699</strong> ريال سنويًا · شامل الضريبة</div>
+            <div class="hero__ctas" data-reveal style="--d: 4">
+              <a class="btn btn-gold btn-lg" href="/register">عضوية فردية <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+              <a class="btn btn-ghost btn-lg" href="#business"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg> عضوية الشركات</a>
             </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="imgs/arabic-flag.png"
-                width="20px"
-                height="20px"
-              />العربية
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="index-en.html">
-                <img
-                  src="imgs/england.png"
-                  width="20px"
-                  height="20px"
-                />الانجليزية
-              </a>
+          </div>
+
+          <div class="hero__visual" data-reveal style="--d: 2">
+            <span class="arch-outline" aria-hidden="true"></span>
+            <div class="arch">
+              <img src="/imgs/lounge-candles-840.webp" srcset="/imgs/lounge-candles-480.webp 480w, /imgs/lounge-candles-840.webp 840w" sizes="(min-width: 960px) 420px, 90vw" width="840" height="1262" alt="صالون هادئ بإضاءة شموع دافئة وكرسي مخملي أخضر" fetchpriority="high" />
             </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <!--// End nav-->
-
-    <!-- Start slider -->
-
-    <section class="slider">
-      <div class="shape-left"></div>
-      <div class="shape-right"></div>
-      <div class="luxury">
-        <h1 class="text-uppercase">the luxury club</h1>
-        <div class="gold-link">
-          <span class="gold-line gold-left"></span
-          ><a class="fancybox lsb-text-overlay-link" href="#">عرض المزيد </a
-          ><span class="gold-line gold-right"></span>
-        </div>
-      </div>
-    </section>
-    <!-- // end slider -->
-
-    <!-- start about us  -->
-    <section class="about d-flex" id="ab">
-      <!-- Large image container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-left">
-        <img src="imgs/new2.jpg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <h2>نبذة عنا</h2>
-          <p>
-            نادي الكتروني يتميز بخدمة الأعضاء عن طريق تقديم أفضل العروض من
-            المتاجر العالمية والفنادق والمطاعم مقابل الانتساب لعضوية النادي
-            وتقديم خدمات خاصة في المجال القانوني وخدمة المساعدة على الطريق
-            والمساعد الشخصي لتلبية احتياج الاعضاء وإرضائهم.
-          </p>
-        </div>
-      </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-right">
-        <div class="first-img">
-          <img src="imgs/new3.jpg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/new4.jpg" />
-        </div>
-      </div>
-    </section>
-    <!--  // end about us  -->
-
-    <!-- start our message -->
-    <section class="about message d-flex" id="ms">
-      <!-- large images container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-right">
-        <img src="imgs/new2.jpg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <h2>رسالتنا</h2>
-          <p>توفير حلول وجودة عالية لتقديم أفضل العروض والخدمات لأعضائنا.</p>
-        </div>
-      </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-left">
-        <div class="first-img">
-          <img src="imgs/new3.jpg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/new4.jpg" />
-        </div>
-      </div>
-    </section>
-    <!---/// End about us -->
-
-    <!-- start visiion -->
-
-    <section class="vision about d-flex" id="vi">
-      <!-- Large image container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-left">
-        <img src="imgs/new2.jpg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <h2>رؤيتنا</h2>
-          <ul>
-            <li>
-              العمل على زيادة الخدمات من خلال عقد اتفاقيات وشراكات مع مقدمين
-              خدمة مميزين.
-            </li>
-            <li>
-              الوصول للريادة والقيادة وأن نصبح الاختيار الاول في المملكة العربية
-              السعودية.
-            </li>
-            <li>
-              العمل على جذب أفضل الشركات العالمية كشركاء من أجل تقديم أفضل
-              العروض والمكافات لاعضاء النادي.
-            </li>
-            <li>
-              العمل على توظيف نخبة من ذوي الخبرات العالية لتقديم أفضل الخدمات
-              عالية الجودة لاعضاء النادي
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-right">
-        <div class="first-img">
-          <img src="imgs/new4.jpg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/new5.jpg" />
-        </div>
-      </div>
-    </section>
-    <!--//// end vision-->
-
-    <!--  start why us  -->
-    <section class="about why-us d-flex" id="wu">
-      <!-- Large image container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-right">
-        <img src="imgs/pic1.jpeg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <h2>لماذا تختار The Luxury Club</h2>
-          <p>
-            تميز تطبيق ( The Luxury Club )بتصميم سهل الاستخدام يقدم تجربة فريدة
-            للاعضاء في تقديم كل ماهو مميز وفريد وتقديم أحدث العروض و الخدمات على
-            أفضل العلامات التجارية بشكل مستمر ، كما يقدم التطبيق كثيرا من
-            الخدمات المميزة منها :
-          </p>
-          <ul>
-            <li>خدمة مساعدة على الطريق</li>
-            <li>استشارات قانونية خاصة</li>
-            <li>خدمة المساعد الشخصي</li>
-            <li>تأشيرات السفر</li>
-            <li>تنظيم المعارض والمؤتمرات</li>
-          </ul>
-        </div>
-      </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-left">
-        <div class="first-img">
-          <img src="imgs/pic2.jpeg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/ser.jpg" />
-        </div>
-      </div>
-    </section>
-    <!-- End Why Us-->
-
-    <!-- start members club -->
-    <section class="about club why-us d-flex" id="mc">
-      <!-- Large image container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-right">
-        <img src="imgs/new2.jpg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <h2>نادي الاعضاء</h2>
-
-          <!-- <ul>
-                    <li>مطاعم ومقاهي </li>
-                    <li>براند سعودي</li>
-                    <li> أزياء وعطور</li>
-                    <li> فنادق ومنتجعات</li>
-                    <li> صحة وتجميل</li>
-                    <li>سيارات ومتفرقات</li>
-                </ul> -->
-
-          <p>
-            تمنحك عضويتنا الى جانب الخدمات المقدمة من خلالها عروضاَ ومكافاًت
-            وخصومات قيًمة لا محدودة طوال فترة الاشتراك لدى شركاءنا التجاريين من
-            خلال نقط البيع الخاصة بهو , مع التأكيد على تحديث قئمة الشركاء
-            باٍزدياد اسبوعياً لتغطي جميع اٍحتياجات الأعضاء واهتماماتهم .
-          </p>
-        </div>
-      </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-left">
-        <div class="first-img">
-          <img src="imgs/new4.jpg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/new5.jpg" />
-        </div>
-      </div>
-    </section>
-    <!-- //// end members club -->
-
-    <!-- start legal -->
-    <section class="about legal why-us d-flex" id="ss">
-      <!-- Large image container-->
-      <div class="main-img aos-init aos-animate" data-aos="fade-right">
-        <img src="imgs/pic1.jpeg" />
-        <div
-          class="image-grid -text-text-container aos-init aos-animate"
-          data-aos="fade-up"
-        >
-          <div class="legal-assist">
-            <h2>خدمات الاعضاء</h2>
-            <p class="ser-caption">
-              يعتبر (The Luxury Club ) النادي الوحيد في المملكة العربية السعودية
-              والشرق الاوسط الذي يقدم خدمات حصرية رفيعة للعضوية الخاصة إضافة
-              للخصومات والمكافآت الخاصة جدا طوال العام التي يتمتع بها أعضاؤنا من
-              خلال النادي فإن العضوية الخاصة للنادي تمنحكم كثيرا من المميزات
-              وذلك عند إبرازها لدى شركاؤنا ومن أبرز هذه الخدمات.....
-            </p>
-            <a href="services.html">
-              عرض المزيد <i class="fas fa-arrow-left"></i>
-            </a>
+            <div class="member-card" aria-hidden="true">
+              <div class="member-card__top">
+                <svg class="member-card__logo"><use href="/imgs/icons.svg#logo" /></svg>
+                <span class="member-card__tier">Member</span>
+              </div>
+              <span class="member-card__chip"></span>
+              <div class="member-card__bottom">
+                <div>
+                  <div class="member-card__name">ABDULLAH AL-RASHED</div>
+                  <div class="member-card__no">LC · 00128</div>
+                </div>
+                <div class="member-card__exp">Valid thru<span>11 / 27</span></div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+
+      <div class="facts">
+        <ul class="container">
+          <li><strong class="num">3</strong>خدمات حصرية</li>
+          <li><strong class="num">699</strong>ريال سنويًا</li>
+          <li><strong class="facts__word">أفراد وشركات</strong>عضوية لك أو لفريقك</li>
+        </ul>
       </div>
-      <!-- small images container-->
-      <div class="sub-img d-flex aos-init aos-animate" data-aos="fade-left">
-        <div class="first-img">
-          <img src="imgs/ser1111.jpg" />
-        </div>
-        <div class="second-img">
-          <img src="imgs/pic.jpeg" />
-        </div>
-      </div>
-    </section>
-    <!-- // end legal -->
 
-    <!-- footer-->
-    <footer>
-      <div class="footer-cont">
-        <h3>تحميل التطبيق</h3>
-        <div class="download d-flex">
-          <img src="imgs/app.svg" width="200px" height="60px" />
-          <img src="imgs/google.png" width="200px" height="60px" />
-        </div>
-        <h2 class="h1 text-uppercase">the <span>luxury club</span></h2>
+      <!-- ============================================================ Services -->
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>خدمات العضوية</span>
+            <h2 data-reveal style="--d: 1">ثلاث خدمات، تطلبها برسالة واحدة.</h2>
+            <p data-reveal style="--d: 2">اخترنا الخدمات التي تحتاجها فعلًا في يومك، ونتولّى تنفيذها عنك مع جهات معتمدة.</p>
+          </div>
 
-        <div class="social">
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i> luxuryclub_sa
-        </div>
-        <div class="site-url">
-          <a href="terms .html"> الشروط والاحكام </a> -
-          <a href="club-rules.html">قواعد النادي</a>
-        </div>
-        <div class="site-url">
-          <a href="mailto:info@the-luxury-club.com"> info@the-luxury-club.com </a> -
-          <a target="_blank" href=" www.the-luxury-club.com"> www.the-luxury-club.com</a>
-        </div>
-      </div>
-    </footer>
+          <div class="services-grid">
+            <article class="service-card" id="legal" data-reveal>
+              <span class="service-card__num" aria-hidden="true">01</span>
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-legal" /></svg></span>
+              <h3>استشارات قانونية</h3>
+              <p>نخبة من المحامين والمستشارين لاستشاراتك الخاصة، ومتابعة معاملاتك العدلية.</p>
+              <ul class="check-list">
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>استشارات قانونية خاصة وسرية</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>خدمات مختارة عبر منصة ناجز</li>
+              </ul>
+              <a class="link-arrow" href="/services#legal">تفاصيل الخدمة <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </article>
 
-    <!-- whatsapp -->
-    <script>
-      var url =
-        "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?22485";
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = url;
-      var options = {
-        enabled: true,
-        chatButtonSetting: {
-          backgroundColor: "#4dc247",
-          ctaText: "اترك رسالة",
-          borderRadius: "5",
-          marginRight: "0",
-          marginBottom: "40",
-          marginLeft: "40",
-          position: "left",
-        },
-        brandSetting: {
-          brandName: "Luxury Club",
-          brandSubTitle: "Typically replies within a day",
-          brandImg: "https://i.ibb.co/3dQNSj4/logo.png",
-          welcomeText: "مرحبا!\nكيف يمكنني مساعدتك؟",
-          messageText: "مرحبا, لدي استفسار بشأن {{page_title}}",
-          backgroundColor: "#0a5f54",
-          ctaText: "ابدأ المحادثة",
-          borderRadius: "25",
-          autoShow: false,
-          phoneNumber: "966558103228",
-        },
-      };
-      s.onload = function () {
-        CreateWhatsappChatWidget(options);
-      };
-      var x = document.getElementsByTagName("script")[0];
-      x.parentNode.insertBefore(s, x);
-    </script>
+            <article class="service-card" id="roadside" data-reveal style="--d: 1">
+              <span class="service-card__num" aria-hidden="true">02</span>
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-roadside" /></svg></span>
+              <h3>مساعدة على الطريق</h3>
+              <p>تتعطل سيارتك؟ أرسل موقعك، ونرسل لك المساعدة داخل المدينة وخارجها.</p>
+              <ul class="check-list">
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>سحب السيارة بالسطحة المناسبة</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>الإطارات، والبطارية، وتوصيل الوقود</li>
+              </ul>
+              <a class="link-arrow" href="/services#roadside">تفاصيل الخدمة <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </article>
 
-    <a class="join-us" href="join-us.php">انضم لنا </a>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-      AOS.init();
-    </script>
+            <article class="service-card" id="visas" data-reveal style="--d: 2">
+              <span class="service-card__num" aria-hidden="true">03</span>
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-passport" /></svg></span>
+              <h3>تأشيرات السفر</h3>
+              <p>نُنجز طلب تأشيرتك السياحية من البداية للنهاية، بدون رسوم خدمة إضافية.</p>
+              <ul class="check-list">
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>تجهيز الطلب ومتابعته حتى الإصدار</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>تدفع رسوم السفارة فقط</li>
+              </ul>
+              <a class="link-arrow" href="/services#visas">تفاصيل الخدمة <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </article>
+          </div>
+
+          <p class="services-note" data-reveal>
+            <svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-shield" /></svg>
+            <span>تُقدَّم كل خدمة وفق <a href="/terms">الشروط والأحكام</a> وحدود العضوية.</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ How it works -->
+      <section class="section section--deep" id="how">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>كيف تعمل العضوية</span>
+            <h2 data-reveal style="--d: 1">من التسجيل إلى أول طلب، في دقائق.</h2>
+          </div>
+          <ol class="steps">
+            <li data-reveal>
+              <h3>أنشئ حسابك</h3>
+              <p>بياناتك الأساسية فقط، وتأكيد بريدك الإلكتروني.</p>
+            </li>
+            <li data-reveal style="--d: 1">
+              <h3>فعّل عضويتك</h3>
+              <p>ادفع 699 ريالًا بمدى أو البطاقة أو Apple Pay، وتبدأ عضويتك لسنة كاملة فورًا.</p>
+            </li>
+            <li data-reveal style="--d: 2">
+              <h3>اطلب خدمتك</h3>
+              <p>بطاقتك الرقمية في جوالك، واطلب أي خدمة من حسابك برسالة واتساب جاهزة.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============================================================ Plans -->
+      <section class="section" id="membership">
+        <div class="container">
+          <div class="section-head is-center">
+            <span class="eyebrow" data-reveal>العضوية</span>
+            <h2 data-reveal style="--d: 1">لك وحدك، أو لفريقك بالكامل.</h2>
+          </div>
+
+          <div class="plans">
+            <article class="plan" data-reveal>
+              <span class="plan__label"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-user" /></svg>عضوية الأفراد</span>
+              <h3>عضوية سنوية</h3>
+              <div class="plan__price">
+                <span class="num">699</span>
+                <span>ريال / سنة</span>
+                <small>شامل ضريبة القيمة المضافة 15%</small>
+              </div>
+              <ul class="check-list">
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>الخدمات الثلاث طوال مدة العضوية</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>بطاقة عضوية رقمية برمز QR</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>طلب الخدمات من حسابك مباشرة</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>تذكير قبل انتهاء العضوية، وتجديد بضغطة</li>
+              </ul>
+              <a class="btn btn-gold btn-lg" href="/register">ابدأ عضويتك <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </article>
+
+            <article class="plan plan--business" id="business" data-reveal style="--d: 1">
+              <span class="plan__label"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg>عضوية الشركات</span>
+              <h3>عضويات لفريقك، باسم شركتك</h3>
+              <p class="plan__lead">اشترِ العدد الذي تحتاجه من العضويات، وامنحها لموظفيك من لوحة تحكم خاصة بشركتك.</p>
+              <ul class="check-list">
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>اسم شركتك على بطاقة كل موظف</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>دعوة الموظفين بالبريد أو برفع ملف Excel</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>نقل العضوية من موظف لآخر عند الحاجة</li>
+                <li><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-check" /></svg>فاتورة ضريبية باسم الشركة، وأسعار خاصة للأعداد الكبيرة</li>
+              </ul>
+              <a class="btn btn-dark btn-lg" href="/register/business">سجّل شركتك <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Card showcase -->
+      <section class="section section--deep">
+        <div class="container showcase">
+          <div class="section-head" style="margin: 0">
+            <span class="eyebrow" data-reveal>بطاقة العضوية</span>
+            <h2 data-reveal style="--d: 1">بطاقتك في جوالك، دائمًا.</h2>
+            <p data-reveal style="--d: 2">بطاقة رقمية باسمك ورقم عضويتك ورمز QR، يتحقق منها مقدّم الخدمة في ثوانٍ. وموظفو الشركات تحمل بطاقاتهم اسم شركتهم.</p>
+          </div>
+          <div class="showcase__cards" aria-hidden="true" data-reveal style="--d: 1">
+            <div class="member-card">
+              <div class="member-card__top">
+                <svg class="member-card__logo"><use href="/imgs/icons.svg#logo" /></svg>
+                <span class="member-card__tier">Corporate</span>
+              </div>
+              <span class="member-card__chip"></span>
+              <div class="member-card__bottom">
+                <div>
+                  <div class="member-card__company">Najd Holding</div>
+                  <div class="member-card__name">SARA AL-OTAIBI</div>
+                  <div class="member-card__no">LC · 00342</div>
+                </div>
+                <div class="member-card__exp">Valid thru<span>03 / 27</span></div>
+              </div>
+            </div>
+            <div class="member-card">
+              <div class="member-card__top">
+                <svg class="member-card__logo"><use href="/imgs/icons.svg#logo" /></svg>
+                <span class="member-card__tier">Member</span>
+              </div>
+              <span class="member-card__chip"></span>
+              <div class="member-card__bottom">
+                <div>
+                  <div class="member-card__name">ABDULLAH AL-RASHED</div>
+                  <div class="member-card__no">LC · 00128</div>
+                </div>
+                <div class="member-card__exp">Valid thru<span>11 / 27</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head is-center">
+            <span class="eyebrow" data-reveal>الأسئلة الشائعة</span>
+            <h2 data-reveal style="--d: 1">قبل أن تنضم.</h2>
+          </div>
+          <div class="faq" data-reveal>
+            <details>
+              <summary>ماذا تشمل العضوية؟<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">ثلاث خدمات: الاستشارات القانونية، والمساعدة على الطريق، وتأشيرات السفر، وفق الشروط والأحكام وحدود كل خدمة الموضحة فيها.</div>
+            </details>
+            <details>
+              <summary>كم مدة العضوية، ومتى تبدأ؟<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">سنة كاملة تبدأ من لحظة الدفع. ونذكّرك قبل انتهائها، وعند التجديد تُضاف السنة الجديدة إلى تاريخ الانتهاء الحالي فلا يضيع أي يوم.</div>
+            </details>
+            <details>
+              <summary>كيف أطلب خدمة؟<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">من حسابك، اختر الخدمة، وتُفتح لك رسالة واتساب جاهزة باسمك ورقم عضويتك. وفي المساعدة على الطريق يمكنك إرسال موقعك مباشرة.</div>
+            </details>
+            <details>
+              <summary>كيف تعمل عضوية الشركات؟<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">تسجّل الشركة وتحدد عدد العضويات، ثم تدعو موظفيها من لوحة التحكم. كل موظف يحصل على حسابه وبطاقته باسم الشركة، وتنتهي عضويات الشركة كلها في تاريخ واحد وتُجدَّد بفاتورة واحدة.</div>
+            </details>
+            <details>
+              <summary>ما وسائل الدفع المتاحة؟<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">مدى، وفيزا، وماستركارد، وApple Pay عبر بوابة دفع آمنة. وللشركات أيضًا التحويل البنكي.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Dasman -->
+      <section class="section" style="padding-block-start: 0">
+        <div class="container">
+          <div class="family" data-reveal>
+            <div class="arch">
+              <img src="/imgs/dasman-diriyah-720.webp" width="720" height="720" loading="lazy" alt="الدرعية التاريخية" />
+            </div>
+            <div class="family__text">
+              <span class="eyebrow">من عائلة The Luxury Club</span>
+              <img src="/imgs/dasman-logo-light.png" width="360" height="197" loading="lazy" alt="دسمان" />
+              <p>دسمان: عضوية حصرية للطلبة الكويتيين الدارسين في الرياض، تجمع الخدمات والعروض والأنشطة في منصة واحدة.</p>
+            </div>
+            <a class="btn btn-ghost" href="https://dasman.the-luxury-club.com/?utm_source=luxury&amp;utm_medium=site&amp;utm_campaign=family" target="_blank" rel="noopener">اكتشف دسمان <svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow-out" /></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Final CTA -->
+      <section class="section section--deep">
+        <div class="container cta-final">
+          <span class="eyebrow" data-reveal>انضم إلى النادي</span>
+          <h2 data-reveal style="--d: 1">عضويتك تبدأ اليوم.</h2>
+          <p data-reveal style="--d: 2">699 ريالًا سنويًا شاملة الضريبة، أو تواصل معنا لعرض خاص لشركتك.</p>
+          <div class="cta-final__ctas" data-reveal style="--d: 3">
+            <a class="btn btn-gold btn-lg" href="/register">عضوية فردية <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            <a class="btn btn-ghost btn-lg" href="/register/business">عضوية الشركات</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer-ar -->
   </body>
 </html>

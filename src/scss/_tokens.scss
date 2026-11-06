@@ -1,0 +1,108 @@
+// The Luxury Club design tokens: "Midnight Lounge".
+// Dark forest base, ivory text, champagne gold hairlines, and the arch as the brand shape.
+// Everything is a CSS variable so the platform (React) and the public pages share one source.
+
+:root {
+  // Base: near-black forest greens
+  --ink-950: #0b0e09;
+  --forest-900: #12160e;
+  --forest-850: #171c12;
+  --forest-800: #1c2316;
+  --forest-700: #26301e;
+  --forest-600: #354229;
+  --olive-500: #4f5b3c; // logo background tone from the 2021 identity
+
+  // Text
+  --ivory-50: #f7f3ea;
+  --ivory-100: #efe9dc;
+  --ivory-200: #e3dac7;
+  --ivory-300: #cfc5b0;
+  --mute-400: #a19c88;
+  --mute-500: #7e7a69;
+
+  // Champagne gold (logo #C49E5A family)
+  --champagne-200: #ecdcb8;
+  --champagne-300: #e0c796;
+  --champagne-400: #cdab70;
+  --champagne-500: #b8935a;
+  --champagne-700: #7d6136;
+
+  // Feedback
+  --success: #8fbf8a;
+  --danger: #e08a7a;
+  --warning: #e3b765;
+
+  // Semantic
+  --bg: var(--forest-900);
+  --bg-deep: var(--ink-950);
+  --surface: var(--forest-800);
+  --surface-2: var(--forest-700);
+  --text: var(--ivory-50);
+  --text-soft: var(--ivory-300);
+  --text-mute: var(--mute-400);
+  --accent: var(--champagne-400);
+  --accent-strong: var(--champagne-300);
+  --line: rgb(205 171 112 / 0.18);
+  --line-strong: rgb(205 171 112 / 0.4);
+  --line-soft: rgb(247 243 234 / 0.08);
+
+  // Type
+  --font-sans: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Cormorant Garamond', 'IBM Plex Sans Arabic', Georgia, serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --fs-xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+  --fs-2xl: clamp(1.875rem, 1.5rem + 1.8vw, 3rem);
+  --fs-3xl: clamp(2.375rem, 1.7rem + 3.2vw, 4.5rem);
+  --fs-num: clamp(3.5rem, 2.6rem + 4vw, 6.25rem);
+
+  // Space and shape
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  --section-y: clamp(4.5rem, 3rem + 6vw, 7.5rem);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --arch: 999px 999px var(--radius-sm) var(--radius-sm);
+
+  --header-h: 84px;
+  --header-h-scrolled: 68px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.6s;
+
+  color-scheme: dark;
+}
+
+// Light "ivory" sections (business panel, platform forms)
+@mixin ivory {
+  --bg: var(--ivory-50);
+  --surface: #fffdf8;
+  --surface-2: var(--ivory-100);
+  --text: var(--forest-900);
+  --text-soft: #3d4535;
+  --text-mute: #6b6e5e;
+  --accent: var(--champagne-700);
+  --accent-strong: #5f4a28;
+  --line: rgb(125 97 54 / 0.2);
+  --line-strong: rgb(125 97 54 / 0.45);
+  --line-soft: rgb(18 22 14 / 0.08);
+  color-scheme: light;
+  background: var(--bg);
+  color: var(--text);
+}
+
+@mixin bp($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
