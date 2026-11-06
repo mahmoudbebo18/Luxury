@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Luxury Club | Private services membership for individuals and companies</title>
-    <meta name="description" content="An annual membership for SAR 699, VAT included: legal consultations, roadside assistance and travel visas. For individuals and companies in Saudi Arabia." />
-    <link rel="canonical" href="https://the-luxury-club.com/en/" />
-    <link rel="alternate" hreflang="ar" href="https://the-luxury-club.com/" />
-    <link rel="alternate" hreflang="en" href="https://the-luxury-club.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://the-luxury-club.com/" />
+    <meta name="description" content="An annual membership for SAR {{price}}, VAT included: legal consultations, roadside assistance and travel visas. For individuals and companies in Saudi Arabia." />
+    <!-- @seo -->
     <meta name="theme-color" content="#0b0e09" />
     <link rel="icon" href="/imgs/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
@@ -16,7 +13,6 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="The Luxury Club | Private services membership" />
     <meta property="og:description" content="Legal consultations, roadside assistance and travel visas in one membership. For individuals and companies." />
-    <meta property="og:url" content="https://the-luxury-club.com/en/" />
     <meta property="og:image" content="https://the-luxury-club.com/imgs/og.jpg" />
     <link rel="preload" as="image" href="/imgs/lounge-candles-840.webp" imagesrcset="/imgs/lounge-candles-480.webp 480w, /imgs/lounge-candles-840.webp 840w" imagesizes="(min-width: 960px) 420px, 90vw" />
     <script type="module" src="/src/site/main.ts"></script>
@@ -32,10 +28,10 @@
             <span class="eyebrow" data-reveal>Private membership club · Saudi Arabia</span>
             <h1 class="hero__title" data-reveal style="--d: 1">One membership.<br /><em>Everything handled.</em></h1>
             <p class="hero__lead" data-reveal style="--d: 2">Your legal consultations, roadside assistance and travel visas in a single annual membership. For you, or for your whole team.</p>
-            <div class="price-chip" data-reveal style="--d: 3"><strong class="num">699</strong> SAR a year · VAT included</div>
+            <div class="price-chip" data-reveal style="--d: 3"><strong class="num">{{price}}</strong> SAR a year · VAT included</div>
             <div class="hero__ctas" data-reveal style="--d: 4">
               <a class="btn btn-gold btn-lg" href="/register?lang=en">Individual membership <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
-              <a class="btn btn-ghost btn-lg" href="#business"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg> For business</a>
+              <a class="btn btn-ghost btn-lg" href="/en/business"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg> For business</a>
             </div>
           </div>
 
@@ -65,7 +61,7 @@
       <div class="facts">
         <ul class="container">
           <li><strong class="num">3</strong>Exclusive services</li>
-          <li><strong class="num">699</strong>SAR a year</li>
+          <li><strong class="num">{{price}}</strong>SAR a year</li>
           <li><strong class="facts__word">You &amp; your team</strong>Individuals and companies</li>
         </ul>
       </div>
@@ -138,7 +134,7 @@
             </li>
             <li data-reveal style="--d: 1">
               <h3>Activate your membership</h3>
-              <p>Pay SAR 699 with mada, card or Apple Pay, and your year starts right away.</p>
+              <p>Pay SAR {{price}} with mada, card or Apple Pay, and your year starts right away.</p>
             </li>
             <li data-reveal style="--d: 2">
               <h3>Request a service</h3>
@@ -161,7 +157,7 @@
               <span class="plan__label"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-user" /></svg>Individual membership</span>
               <h3>Annual membership</h3>
               <div class="plan__price">
-                <span class="num">699</span>
+                <span class="num">{{price}}</span>
                 <span>SAR / year</span>
                 <small>15% VAT included</small>
               </div>
@@ -286,10 +282,10 @@
         <div class="container cta-final">
           <span class="eyebrow" data-reveal>Join the club</span>
           <h2 data-reveal style="--d: 1">Your membership starts today.</h2>
-          <p data-reveal style="--d: 2">SAR 699 a year, VAT included. Or talk to us about a package for your company.</p>
+          <p data-reveal style="--d: 2">SAR {{price}} a year, VAT included. Or talk to us about a package for your company.</p>
           <div class="cta-final__ctas" data-reveal style="--d: 3">
             <a class="btn btn-gold btn-lg" href="/register?lang=en">Individual membership <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
-            <a class="btn btn-ghost btn-lg" href="/register/business?lang=en">For business</a>
+            <a class="btn btn-ghost btn-lg" href="/en/business">For business</a>
           </div>
         </div>
       </section>

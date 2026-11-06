@@ -1,0 +1,717 @@
+@use 'tokens' as *;
+
+// Inner public pages: services, business, legal pages, 404.
+
+// ---------------------------------------------------------------- Page hero
+.page-hero {
+  position: relative;
+  padding-block: calc(var(--header-h) + clamp(2.5rem, 1.5rem + 4vw, 4.5rem)) clamp(3rem, 2rem + 4vw, 5rem);
+  background:
+    radial-gradient(55% 80% at 10% 20%, rgb(79 91 60 / 0.32), transparent 70%),
+    radial-gradient(45% 60% at 95% 0%, rgb(205 171 112 / 0.08), transparent 70%),
+    var(--bg-deep);
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+
+  // a large faint arch behind the title: the brand shape, as a hairline
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--header-h) + 1rem);
+    inset-inline-end: -6rem;
+    width: min(46vw, 520px);
+    aspect-ratio: 0.72;
+    border: 1px solid var(--line);
+    border-radius: var(--arch);
+    pointer-events: none;
+  }
+  &--split::before {
+    display: none;
+  }
+
+  &__grid {
+    display: grid;
+    gap: clamp(2.5rem, 2rem + 3vw, 4rem);
+    align-items: center;
+    @include bp(960px) {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+    max-width: 46rem;
+  }
+
+  h1 {
+    font-size: var(--fs-3xl);
+    font-weight: 200;
+    line-height: 1.2;
+    em {
+      font-style: normal;
+      color: var(--accent-strong);
+      font-weight: 300;
+    }
+    [dir='ltr'] & {
+      font-weight: 500;
+      line-height: 1.04;
+      em {
+        font-style: italic;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__lead {
+    font-size: var(--fs-lg);
+    color: var(--text-soft);
+    max-width: 38rem;
+  }
+
+  &__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &__visual {
+    position: relative;
+    justify-self: center;
+    width: min(78%, 360px);
+    .arch {
+      aspect-ratio: 0.72;
+    }
+    .arch-outline {
+      transform: translate(-14px, -14px);
+      [dir='ltr'] & {
+        transform: translate(14px, -14px);
+      }
+    }
+  }
+
+  &--compact h1 {
+    font-size: var(--fs-2xl);
+  }
+}
+
+// in-page anchors (services)
+.anchor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text-soft);
+    font-size: var(--fs-sm);
+    transition:
+      border-color 0.25s,
+      color 0.25s;
+    &:hover {
+      border-color: var(--line-strong);
+      color: var(--text);
+    }
+    .icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--accent);
+    }
+  }
+}
+
+// ---------------------------------------------------------------- Services page
+.service-detail {
+  display: grid;
+  gap: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  padding-block: clamp(3rem, 2rem + 4vw, 5rem);
+  border-top: 1px solid var(--line-soft);
+  scroll-margin-top: var(--header-h-scrolled);
+  &:first-child {
+    border-top: 0;
+    padding-block-start: 0;
+  }
+  @include bp(960px) {
+    grid-template-columns: 300px 1fr;
+  }
+
+  // the big arch with the service icon and number
+  &__aside {
+    position: relative;
+    display: grid;
+    place-items: center;
+    align-self: start;
+    width: min(100%, 300px);
+    aspect-ratio: 0.8;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--arch);
+    background:
+      radial-gradient(80% 60% at 50% 30%, rgb(205 171 112 / 0.12), transparent 70%),
+      linear-gradient(180deg, var(--surface), var(--forest-850));
+    color: var(--accent);
+    @include bp(960px) {
+      position: sticky;
+      top: calc(var(--header-h-scrolled) + 2rem);
+    }
+    > .icon {
+      width: 34%;
+      height: auto;
+      aspect-ratio: 1;
+      stroke-width: 1;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--arch);
+    }
+    @media (max-width: 959px) {
+      width: 160px;
+    }
+  }
+  &__num {
+    position: absolute;
+    bottom: 1.25rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.25rem;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum' 1;
+    line-height: 1;
+    color: rgb(205 171 112 / 0.5);
+    @media (max-width: 959px) {
+      bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__body {
+    display: grid;
+    gap: 2rem;
+    align-content: start;
+    max-width: 46rem;
+  }
+  h2 {
+    font-size: var(--fs-2xl);
+  }
+  &__summary {
+    font-size: var(--fs-lg);
+    color: var(--text-soft);
+  }
+  h3 {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--accent);
+    margin-block-end: 1rem;
+    [dir='ltr'] & {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: var(--fs-xs);
+    }
+  }
+  .check-list {
+    @include bp(640px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 2rem;
+    }
+  }
+  &__how {
+    color: var(--text-soft);
+  }
+}
+
+// hairline box with an icon: limits, notes
+.callout {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgb(247 243 234 / 0.025);
+  color: var(--text-soft);
+  font-size: var(--fs-sm);
+  > .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-block-start: 0.2rem;
+    color: var(--accent);
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+}
+
+// ---------------------------------------------------------------- Business page
+.benefits {
+  display: grid;
+  gap: 1.25rem;
+  @include bp(720px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include bp(1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  li {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--surface), var(--forest-850));
+  }
+  .service-card__icon {
+    width: 52px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px 999px 8px 8px;
+    color: var(--accent);
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-block-start: 6px;
+    }
+  }
+  h3 {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+  }
+  p {
+    color: var(--text-soft);
+    font-size: var(--fs-sm);
+  }
+}
+
+// seat calculator: an ivory panel like the business plan on the home page
+.calc {
+  @include ivory;
+  display: grid;
+  gap: 2rem;
+  padding: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgb(205 171 112 / 0.18), transparent 60%),
+    var(--ivory-50);
+  @include bp(900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  &__input {
+    display: grid;
+    gap: 1.25rem;
+    align-content: start;
+  }
+  label {
+    font-weight: 500;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  &__step {
+    flex: none;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover {
+      background: rgb(125 97 54 / 0.08);
+    }
+  }
+  input[type='number'] {
+    width: 100%;
+    min-width: 0;
+    height: 64px;
+    padding-inline: 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum' 1;
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:focus-visible {
+      outline: 2px solid var(--champagne-500);
+      outline-offset: 2px;
+    }
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--champagne-700);
+  }
+  &__hint {
+    font-size: var(--fs-sm);
+    color: var(--text-mute);
+  }
+
+  &__result {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  &__total {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.6rem;
+    padding-block-end: 1rem;
+    border-bottom: 1px solid var(--line-soft);
+    .num {
+      font-size: clamp(2.75rem, 2rem + 3vw, 4rem);
+      line-height: 1;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+    span {
+      color: var(--text-soft);
+    }
+  }
+  dl {
+    display: grid;
+    div[hidden] {
+      display: none;
+    }
+    gap: 0.5rem;
+    margin: 0;
+    font-size: var(--fs-sm);
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    dt {
+      color: var(--text-mute);
+    }
+    dd {
+      margin: 0;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+  &__note {
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--ivory-100);
+    &[hidden] {
+      display: none;
+    }
+  }
+  .btn {
+    justify-self: start;
+  }
+}
+
+// ---------------------------------------------------------------- Legal pages
+.legal {
+  &__updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-mute);
+    font-size: var(--fs-sm);
+    .icon {
+      width: 1.05rem;
+      height: 1.05rem;
+      color: var(--accent);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-block-start: 2.5rem;
+    @include bp(960px) {
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  &__toc {
+    align-self: start;
+    padding: 1.25rem 1.25rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-size: var(--fs-sm);
+    @include bp(960px) {
+      position: sticky;
+      top: calc(var(--header-h-scrolled) + 1.5rem);
+      border-width: 0;
+      border-inline-start-width: 1px;
+      border-radius: 0;
+      padding-block: 0.25rem;
+    }
+    span {
+      display: block;
+      margin-block-end: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    ol {
+      display: grid;
+      gap: 0.4rem;
+      counter-reset: toc;
+    }
+    li {
+      counter-increment: toc;
+      display: flex;
+      gap: 0.6rem;
+      &::before {
+        content: counter(toc, decimal-leading-zero);
+        font-family: var(--font-display);
+        color: var(--text-mute);
+        min-width: 1.4rem;
+      }
+    }
+    a {
+      color: var(--text-soft);
+      &:hover {
+        color: var(--accent-strong);
+      }
+    }
+  }
+
+  &__others {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-block-start: 3.5rem;
+    padding-block-start: 2rem;
+    border-top: 1px solid var(--line-soft);
+  }
+}
+
+// Markdown output (site_pages)
+.prose {
+  max-width: 44rem;
+  color: var(--text-soft);
+  counter-reset: h2;
+
+  > * + * {
+    margin-block-start: 1rem;
+  }
+  h2 {
+    counter-increment: h2;
+    margin-block-start: 2.75rem;
+    padding-block-start: 2rem;
+    border-top: 1px solid var(--line-soft);
+    font-size: var(--fs-xl);
+    font-weight: 400;
+    color: var(--text);
+    scroll-margin-top: calc(var(--header-h-scrolled) + 1rem);
+    &::before {
+      content: counter(h2, decimal-leading-zero);
+      display: block;
+      margin-block-end: 0.35rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--accent);
+    }
+    [dir='ltr'] & {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.85rem;
+    }
+  }
+  > h2:first-child {
+    margin-block-start: 0;
+    padding-block-start: 0;
+    border-top: 0;
+  }
+  h3 {
+    margin-block-start: 1.75rem;
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    color: var(--text);
+  }
+  ul,
+  ol {
+    display: grid;
+    gap: 0.6rem;
+  }
+  ul li {
+    position: relative;
+    padding-inline-start: 1.4rem;
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0.15rem;
+      top: 0.78em;
+      width: 6px;
+      height: 6px;
+      border: 1px solid var(--accent);
+      transform: rotate(45deg);
+    }
+  }
+  ol {
+    counter-reset: li;
+    li {
+      counter-increment: li;
+      display: flex;
+      gap: 0.6rem;
+      &::before {
+        content: counter(li) '.';
+        color: var(--accent);
+      }
+    }
+  }
+  strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    &:hover {
+      color: var(--accent-strong);
+    }
+  }
+  // text still to come from the client: "[7]"
+  mark.pending {
+    padding: 0.05em 0.35em;
+    border-radius: 4px;
+    background: rgb(227 183 101 / 0.14);
+    color: var(--warning);
+    box-shadow: inset 0 0 0 1px rgb(227 183 101 / 0.35);
+  }
+}
+
+// ---------------------------------------------------------------- 404
+.notfound {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-block: calc(var(--header-h) + 2rem) 4rem;
+  background:
+    radial-gradient(55% 80% at 15% 30%, rgb(79 91 60 / 0.32), transparent 70%),
+    var(--bg-deep);
+
+  &__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    @include bp(900px) {
+      grid-template-columns: 1fr 0.7fr;
+    }
+  }
+  &__text {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+  }
+  &__code {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(5rem, 3rem + 8vw, 9rem);
+    line-height: 0.9;
+    color: var(--accent);
+  }
+  h1 {
+    font-size: var(--fs-2xl);
+    [dir='ltr'] & {
+      font-weight: 500;
+    }
+  }
+  p {
+    color: var(--text-soft);
+    font-size: var(--fs-lg);
+    max-width: 32rem;
+  }
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  &__visual {
+    justify-self: center;
+    width: min(100%, 300px);
+    .arch {
+      aspect-ratio: 0.68;
+    }
+    @media (max-width: 899px) {
+      display: none;
+    }
+  }
+}
+
+.faq__body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.notfound .notfound__en {
+  font-size: var(--fs-sm);
+  color: var(--text-mute);
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.legal__contact,
+.legal__others {
+  max-width: 44rem;
+  @include bp(960px) {
+    margin-inline-start: calc(240px + 4rem);
+  }
+}
+.legal__contact {
+  margin-block-start: 3rem;
+}
+
+// Cormorant numbers default to old-style figures; counters use lining ones like .num
+.prose h2::before,
+.legal__toc li::before,
+.notfound__code {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+.section.legal {
+  padding-block-start: clamp(2rem, 1.5rem + 2vw, 3rem);
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{legal:rules:title}} | The Luxury Club</title>
+    <meta name="description" content="قواعد عضوية The Luxury Club: المالك، وشروط العضوية، والسلوك." />
+    <!-- @seo -->
+    <meta name="theme-color" content="#0b0e09" />
+    <link rel="icon" href="/imgs/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="The Luxury Club" />
+    <meta property="og:locale" content="ar_SA" />
+    <meta property="og:title" content="{{legal:rules:title}} | The Luxury Club" />
+    <meta property="og:description" content="قواعد عضوية The Luxury Club: المالك، وشروط العضوية، والسلوك." />
+    <meta property="og:image" content="https://the-luxury-club.com/imgs/og.jpg" />
+    <script type="module" src="/src/site/main.ts"></script>
+  </head>
+  <body>
+    <!-- @include header-ar -->
+
+    <main id="main">
+      <section class="page-hero page-hero--compact">
+        <div class="container">
+          <div class="page-hero__text">
+            <span class="eyebrow">السياسات</span>
+            <h1>{{legal:rules:title}}</h1>
+            <p class="page-hero__lead">من يدير النادي، ومن يحق له الانضمام، وما نتوقعه من أعضائنا.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section legal">
+        <div class="container">
+          <!-- @legal rules -->
+          <p class="callout legal__contact">
+            <svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-mail" /></svg>
+            <span>لأي سؤال عن هذه الصفحة راسلنا على <a href="mailto:info@the-luxury-club.com" dir="ltr">info@the-luxury-club.com</a></span>
+          </p>
+          <nav class="anchor-nav legal__others" aria-label="سياسات أخرى">
+              <a href="/terms"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-file" /></svg>الشروط والأحكام</a>
+              <a href="/privacy"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-lock" /></svg>سياسة الخصوصية</a>
+              <a href="/refund"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-wallet" /></svg>الاسترجاع والإلغاء</a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer-ar -->
+  </body>
+</html>

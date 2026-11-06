@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Luxury Club | عضوية الخدمات الخاصة للأفراد والشركات</title>
-    <meta name="description" content="عضوية سنوية بـ 699 ريالًا شاملة الضريبة: استشارات قانونية، ومساعدة على الطريق، وتأشيرات سفر. للأفراد والشركات في المملكة العربية السعودية." />
-    <link rel="canonical" href="https://the-luxury-club.com/" />
-    <link rel="alternate" hreflang="ar" href="https://the-luxury-club.com/" />
-    <link rel="alternate" hreflang="en" href="https://the-luxury-club.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://the-luxury-club.com/" />
+    <meta name="description" content="عضوية سنوية بـ {{price}} ريالًا شاملة الضريبة: استشارات قانونية، ومساعدة على الطريق، وتأشيرات سفر. للأفراد والشركات في المملكة العربية السعودية." />
+    <!-- @seo -->
     <meta name="theme-color" content="#0b0e09" />
     <link rel="icon" href="/imgs/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
@@ -16,7 +13,6 @@
     <meta property="og:locale" content="ar_SA" />
     <meta property="og:title" content="The Luxury Club | عضوية الخدمات الخاصة" />
     <meta property="og:description" content="استشارات قانونية، ومساعدة على الطريق، وتأشيرات سفر في عضوية واحدة. للأفراد والشركات." />
-    <meta property="og:url" content="https://the-luxury-club.com/" />
     <meta property="og:image" content="https://the-luxury-club.com/imgs/og.jpg" />
     <link rel="preload" as="image" href="/imgs/lounge-candles-840.webp" imagesrcset="/imgs/lounge-candles-480.webp 480w, /imgs/lounge-candles-840.webp 840w" imagesizes="(min-width: 960px) 420px, 90vw" />
     <script type="module" src="/src/site/main.ts"></script>
@@ -32,10 +28,10 @@
             <span class="eyebrow" data-reveal>نادي عضوية خاص · المملكة العربية السعودية</span>
             <h1 class="hero__title" data-reveal style="--d: 1">عضويةٌ واحدة،<br />وخدماتٌ <em>تُنجَز عنك.</em></h1>
             <p class="hero__lead" data-reveal style="--d: 2">استشاراتك القانونية، ومساعدتك على الطريق، وتأشيرات سفرك، في عضوية سنوية واحدة. لك، أو لفريق شركتك بالكامل.</p>
-            <div class="price-chip" data-reveal style="--d: 3"><strong class="num">699</strong> ريال سنويًا · شامل الضريبة</div>
+            <div class="price-chip" data-reveal style="--d: 3"><strong class="num">{{price}}</strong> ريال سنويًا · شامل الضريبة</div>
             <div class="hero__ctas" data-reveal style="--d: 4">
               <a class="btn btn-gold btn-lg" href="/register">عضوية فردية <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
-              <a class="btn btn-ghost btn-lg" href="#business"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg> عضوية الشركات</a>
+              <a class="btn btn-ghost btn-lg" href="/business"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-building" /></svg> عضوية الشركات</a>
             </div>
           </div>
 
@@ -65,7 +61,7 @@
       <div class="facts">
         <ul class="container">
           <li><strong class="num">3</strong>خدمات حصرية</li>
-          <li><strong class="num">699</strong>ريال سنويًا</li>
+          <li><strong class="num">{{price}}</strong>ريال سنويًا</li>
           <li><strong class="facts__word">أفراد وشركات</strong>عضوية لك أو لفريقك</li>
         </ul>
       </div>
@@ -138,7 +134,7 @@
             </li>
             <li data-reveal style="--d: 1">
               <h3>فعّل عضويتك</h3>
-              <p>ادفع 699 ريالًا بمدى أو البطاقة أو Apple Pay، وتبدأ عضويتك لسنة كاملة فورًا.</p>
+              <p>ادفع {{price}} ريالًا بمدى أو البطاقة أو Apple Pay، وتبدأ عضويتك لسنة كاملة فورًا.</p>
             </li>
             <li data-reveal style="--d: 2">
               <h3>اطلب خدمتك</h3>
@@ -161,7 +157,7 @@
               <span class="plan__label"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-user" /></svg>عضوية الأفراد</span>
               <h3>عضوية سنوية</h3>
               <div class="plan__price">
-                <span class="num">699</span>
+                <span class="num">{{price}}</span>
                 <span>ريال / سنة</span>
                 <small>شامل ضريبة القيمة المضافة 15%</small>
               </div>
@@ -286,10 +282,10 @@
         <div class="container cta-final">
           <span class="eyebrow" data-reveal>انضم إلى النادي</span>
           <h2 data-reveal style="--d: 1">عضويتك تبدأ اليوم.</h2>
-          <p data-reveal style="--d: 2">699 ريالًا سنويًا شاملة الضريبة، أو تواصل معنا لعرض خاص لشركتك.</p>
+          <p data-reveal style="--d: 2">{{price}} ريالًا سنويًا شاملة الضريبة، أو تواصل معنا لعرض خاص لشركتك.</p>
           <div class="cta-final__ctas" data-reveal style="--d: 3">
             <a class="btn btn-gold btn-lg" href="/register">عضوية فردية <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
-            <a class="btn btn-ghost btn-lg" href="/register/business">عضوية الشركات</a>
+            <a class="btn btn-ghost btn-lg" href="/business">عضوية الشركات</a>
           </div>
         </div>
       </section>

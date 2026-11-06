@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Business membership | The Luxury Club</title>
+    <meta name="description" content="The Luxury Club memberships for your employees: your company name on every card, a dashboard to hand out memberships, and one VAT invoice. Work out the cost for your team." />
+    <!-- @seo -->
+    <meta name="theme-color" content="#0b0e09" />
+    <link rel="icon" href="/imgs/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Luxury Club" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Business membership | The Luxury Club" />
+    <meta property="og:description" content="Memberships for your team under your company name, with a dashboard to hand them out." />
+    <meta property="og:image" content="https://the-luxury-club.com/imgs/og.jpg" />
+    <script type="module" src="/src/site/main.ts"></script>
+    <script type="module" src="/src/site/calculator.ts"></script>
+  </head>
+  <body>
+    <!-- @include header-en -->
+
+    <main id="main">
+      <section class="page-hero page-hero--split">
+        <div class="container page-hero__grid">
+          <div class="page-hero__text">
+            <span class="eyebrow" data-reveal>Business membership</span>
+            <h1 data-reveal style="--d: 1">Memberships for your team,<br /><em>in your company's name.</em></h1>
+            <p class="page-hero__lead" data-reveal style="--d: 2">Buy as many memberships as you need and hand them to your employees from your own company dashboard. One invoice, one end date for everyone.</p>
+            <div class="page-hero__ctas" data-reveal style="--d: 3">
+              <a class="btn btn-gold btn-lg" href="/register/business?lang=en">Register your company <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+              <a class="btn btn-ghost btn-lg" href="#calculator"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-receipt" /></svg> Work out the cost</a>
+            </div>
+          </div>
+          <div class="page-hero__visual" data-reveal style="--d: 2">
+            <span class="arch-outline" aria-hidden="true"></span>
+            <div class="arch">
+              <img src="/imgs/lounge-pattern-full.webp" srcset="/imgs/lounge-pattern-480.webp 480w, /imgs/lounge-pattern-full.webp 564w" sizes="(min-width: 960px) 360px, 90vw" width="564" height="846" alt="A lounge with a green velvet sofa and a gold geometric wall" fetchpriority="high" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ Benefits -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>Why a business membership</span>
+            <h2 data-reveal style="--d: 1">A real perk for your team, with no admin load on you.</h2>
+            <p data-reveal style="--d: 2">Every employee gets all three services: legal consultations, roadside assistance and travel visas, with a card that carries your company name.</p>
+          </div>
+          <ul class="benefits">
+            <li data-reveal>
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-card" /></svg></span>
+              <h3>Your name on the card</h3>
+              <p>A digital card for each employee with their name, your company name and a QR code providers can check.</p>
+            </li>
+            <li data-reveal style="--d: 1">
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-send" /></svg></span>
+              <h3>Invite by email or Excel</h3>
+              <p>Invite employees one by one, upload an Excel sheet, or share a join link limited to your company's email domain.</p>
+            </li>
+            <li data-reveal style="--d: 2">
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-refresh" /></svg></span>
+              <h3>Move a membership when needed</h3>
+              <p>Someone left? Take their membership back from the dashboard and give it to a colleague at any time.</p>
+            </li>
+            <li data-reveal>
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-calendar" /></svg></span>
+              <h3>One end date</h3>
+              <p>All your company's memberships end on the same day and renew together. Extra seats are charged for the remaining months only.</p>
+            </li>
+            <li data-reveal style="--d: 1">
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-receipt" /></svg></span>
+              <h3>A VAT invoice in your company's name</h3>
+              <p>Pay by card, mada or Apple Pay, or by bank transfer for larger teams. The invoice carries your company name and VAT number.</p>
+            </li>
+            <li data-reveal style="--d: 2">
+              <span class="service-card__icon" aria-hidden="true"><svg class="icon"><use href="/imgs/icons.svg#i-lock" /></svg></span>
+              <h3>Your employees' privacy, kept</h3>
+              <p>You see employees' names and membership status only. The services each employee requests stay private to them.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================================================ How -->
+      <section class="section section--deep">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>How it works</span>
+            <h2 data-reveal style="--d: 1">From sign-up to your team's cards.</h2>
+          </div>
+          <ol class="steps">
+            <li data-reveal>
+              <h3>Register your company</h3>
+              <p>Company name, CR number and VAT number, plus your details as the account administrator.</p>
+            </li>
+            <li data-reveal style="--d: 1">
+              <h3>Choose how many and pay</h3>
+              <p>From {{min_seats}} memberships up. Up to {{online_max}} you pay online; above that we send you a quote.</p>
+            </li>
+            <li data-reveal style="--d: 2">
+              <h3>Invite your team</h3>
+              <p>Each employee gets an invitation email, creates an account, and their card appears with your company name right away.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============================================================ Calculator -->
+      <section class="section" id="calculator">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>Cost calculator</span>
+            <h2 data-reveal style="--d: 1">How many memberships do you need?</h2>
+            <p data-reveal style="--d: 2">Prices are per membership per year, VAT included.</p>
+          </div>
+
+          <div class="calc" data-calc data-reveal>
+            <script type="application/json" data-pricing>{{pricing_json}}</script>
+            <div class="calc__input">
+              <label for="seats">Number of memberships</label>
+              <div class="calc__row">
+                <button class="calc__step" type="button" data-step="-1" aria-label="Fewer">−</button>
+                <input id="seats" type="number" inputmode="numeric" min="{{min_seats}}" max="1000" step="1" value="10" data-seats />
+                <button class="calc__step" type="button" data-step="1" aria-label="More">+</button>
+              </div>
+              <input type="range" min="{{min_seats}}" max="100" value="10" aria-label="Number of memberships" data-range />
+              <p class="calc__hint">Minimum {{min_seats}} memberships. You can add seats later at any time.</p>
+            </div>
+
+            <div class="calc__result" aria-live="polite">
+              <div class="calc__total">
+                <span>SAR</span>
+                <span class="num" data-out="total">—</span>
+                <span>a year</span>
+              </div>
+              <dl>
+                <div><dt>Price per membership</dt><dd>SAR <span class="num" data-out="unit">—</span></dd></div>
+                <div data-row="discount" hidden><dt>Volume discount</dt><dd><span class="num" data-out="discount">—</span>%</dd></div>
+                <div><dt>Before VAT</dt><dd>SAR <span class="num" data-out="subtotal">—</span></dd></div>
+                <div><dt>VAT (<span data-out="vat_pct">{{vat_pct}}</span>%)</dt><dd>SAR <span class="num" data-out="vat">—</span></dd></div>
+              </dl>
+              <p class="calc__note" data-note="min" hidden>Business memberships start at {{min_seats}} seats.</p>
+              <p class="calc__note" data-note="quote" hidden>For more than {{online_max}} memberships we send you a quote, and you pay by bank transfer or a payment link.</p>
+              <a class="btn btn-dark btn-lg" href="/register/business?lang=en" data-cta>Register your company <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ FAQ -->
+      <section class="section section--deep">
+        <div class="container">
+          <div class="section-head is-center">
+            <span class="eyebrow" data-reveal>Business FAQ</span>
+            <h2 data-reveal style="--d: 1">Before you register.</h2>
+          </div>
+          <div class="faq" data-reveal>
+            <details>
+              <summary>Is the company administrator a member automatically?<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">No. The administrator account is for managing memberships. If you want a card yourself, invite your own email to a seat like any employee.</div>
+            </details>
+            <details>
+              <summary>What if we need more memberships during the year?<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">Add them from the company dashboard at any time. They end with the rest of your memberships, so you only pay for the remaining months.</div>
+            </details>
+            <details>
+              <summary>Can the administrator see which services an employee uses?<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">No. The administrator sees the employee's name and membership status only. The services an employee requests, legal consultations above all, stay between them and the club.</div>
+            </details>
+            <details>
+              <summary>If a membership moves to another employee, do the service limits reset?<svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-plus" /></svg></summary>
+              <div class="faq__body">No. Service limits belong to the membership for its whole year, as set out in the <a href="/en/terms">terms &amp; conditions</a>.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cta-final">
+          <span class="eyebrow" data-reveal>Business membership</span>
+          <h2 data-reveal style="--d: 1">Start with your team today.</h2>
+          <p data-reveal style="--d: 2">Register your company in minutes, or message us about a package for a larger team.</p>
+          <div class="cta-final__ctas" data-reveal style="--d: 3">
+            <a class="btn btn-gold btn-lg" href="/register/business?lang=en">Register your company <svg class="icon flip" aria-hidden="true"><use href="/imgs/icons.svg#i-arrow" /></svg></a>
+            <a class="btn btn-ghost btn-lg" href="https://wa.me/966558103228?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20business%20memberships" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/imgs/icons.svg#i-whatsapp" /></svg> Talk to us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer-en -->
+  </body>
+</html>

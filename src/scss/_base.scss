@@ -99,6 +99,12 @@ ol {
   width: 1.25em;
   height: 1.25em;
   flex: none;
+  // icons copied from Dasman draw with the stroke set here; the Luxury ones carry their own
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 // Arrows point "forward": left in Arabic, right in English
