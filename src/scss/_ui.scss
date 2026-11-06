@@ -116,6 +116,13 @@
   }
 }
 
+// Dasman defined this in its base styles; Luxury's base doesn't, so every spinner stood still.
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .page-loader {
   display: grid;
   place-items: center;

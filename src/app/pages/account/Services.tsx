@@ -12,6 +12,8 @@ import { Modal } from '../../components/Modal';
 import { useToast } from '../../components/Toast';
 import { EmptyState, ErrorState, Skeleton } from '../../components/States';
 import { Spinner } from '../../components/PageLoader';
+import { formatDate } from '../../lib/format';
+import { useMyServices } from './shared';
 import {
   anchorOf,
   emailParts,
@@ -41,14 +43,7 @@ export default function Services() {
   const navigate = useNavigate();
   const chips = useRef<HTMLDivElement>(null);
 
-  const list = useQuery({
-    queryKey: ['services'],
-    queryFn: async () => {
-      const { data, error } = await supabase.rpc('list_services');
-      if (error) throw error;
-      return (data ?? []) as unknown as MemberService[];
-    },
-  });
+  const list = useMyServices();
 
   const services = list.data ?? [];
   const active = profile?.status === 'active';
@@ -66,14 +61,13 @@ export default function Services() {
   };
 
   return (
-    <div className="container page">
-      <motion.header className="dash-hello" {...rise(0)}>
+    <div className="svc-tab">
+      <header className="tab-head">
         <div>
-          <span className="dash-chip"><Icon name="sparkle" />{t('nav.myServices')}</span>
-          <h1>{t('svc.title')}</h1>
+          <h2>{t('svc.title')}</h2>
           <p>{t('svc.lead')}</p>
         </div>
-      </motion.header>
+      </header>
 
       {profile && !active && (
         <motion.div className="dash-alert dash-alert--expired act-inactive" {...rise(1)}>
@@ -124,7 +118,71 @@ export default function Services() {
           </AnimatePresence>
         </>
       )}
+
+      {profile && <RequestHistory />}
     </div>
+  );
+}
+
+type MyRequest = {
+  id: string;
+  status: 'requested' | 'done' | 'cancelled';
+  channel: 'email' | 'whatsapp' | 'admin';
+  created_at: string;
+  done_at: string | null;
+  icon: string;
+  title_ar: string;
+  title_en: string;
+};
+
+// The member's own requests (my_service_requests: own rows only, no admin notes).
+function RequestHistory() {
+  const { t, lang } = useT();
+  const { account } = useAuth();
+  const q = useQuery({
+    queryKey: ['my-requests', account?.id],
+    queryFn: async () => {
+      const { data, error } = await supabase.rpc('my_service_requests');
+      if (error) throw error;
+      return (data ?? []) as unknown as MyRequest[];
+    },
+  });
+
+  return (
+    <section className="svc-history">
+      <div className="acct-section-head">
+        <h2>{t('svc.history')}</h2>
+        <p className="muted">{t('svc.historyNote')}</p>
+      </div>
+      {q.isLoading ? (
+        <Skeleton rows={2} />
+      ) : !q.data?.length ? (
+        <div className="surface svc-history__empty"><Icon name="history" />{t('svc.historyEmpty')}</div>
+      ) : (
+        <div className="lux-table pays-table">
+          <table>
+            <thead>
+              <tr>
+                <th>{t('svc.service')}</th>
+                <th>{t('pay.date')}</th>
+                <th>{t('svc.channel')}</th>
+                <th>{t('pay.status')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {q.data.map((r) => (
+                <tr key={r.id}>
+                  <td data-label={t('svc.service')}><strong className="svc-history__name"><Icon name={r.icon} />{pick(r, 'title', lang)}</strong></td>
+                  <td data-label={t('pay.date')}>{formatDate(r.created_at, lang)}</td>
+                  <td data-label={t('svc.channel')}>{t(`svc.ch.${r.channel}`)}</td>
+                  <td data-label={t('pay.status')}><span className={`badge badge--rq-${r.status}`}>{t(`svc.rq.${r.status}`)}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
   );
 }
 

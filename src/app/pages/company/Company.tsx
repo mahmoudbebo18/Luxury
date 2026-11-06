@@ -300,7 +300,7 @@ function BuyModal({ type, companyId, contract, pricing, onClose, onDone }: {
   const lead = type === 'company_add_seats' && q?.months ? t('co.addSeatsLead', { m: q.months }) : type === 'company_renew' ? t('co.renewLead') : type === 'company_new' ? t('co.minSeats', { n: pricing.company_min_seats }) : undefined;
 
   return (
-    <Modal open title={title} lead={lead} onClose={onClose} closeLabel={t('nav.close')}>
+    <Modal open title={title} lead={lead} onClose={onClose} closeLabel={t('common.close')}>
       <div className="buy">
         <div className="buy__qty">
           <button type="button" className="btn btn-ghost" onClick={() => setQty((n) => Math.max(min, n - 1))} aria-label="-">−</button>
@@ -387,7 +387,7 @@ function InviteModal({ contractId, free, onClose, onDone }: { contractId: string
   const invalid = useMemo(() => rows.filter((r) => !EMAIL_RE.test(r.email)).length, [rows]);
 
   return (
-    <Modal open wide title={t('co.invite')} lead={t('co.inviteLead')} onClose={onClose} closeLabel={t('nav.close')}>
+    <Modal open wide title={t('co.invite')} lead={t('co.inviteLead')} onClose={onClose} closeLabel={t('common.close')}>
       {result ? (
         <div className="invite-result">
           <p><Icon name="check-circle" /> {t('co.invited', { n: result.invited })}</p>
@@ -460,7 +460,7 @@ function DetailsModal({ company, onClose, onDone }: { company: Overview['company
     onClose();
   };
   return (
-    <Modal open title={t('co.details')} onClose={onClose} closeLabel={t('nav.close')}
+    <Modal open title={t('co.details')} onClose={onClose} closeLabel={t('common.close')}
       footer={<button type="button" className="btn btn-primary" onClick={save} disabled={busy}>{busy ? <Spinner small /> : t('common.save')}</button>}>
       <div className="ui-form">
         {field('card_name', t('reg.cardName'), { maxLength: 40, hint: t('reg.cardNameHint') })}

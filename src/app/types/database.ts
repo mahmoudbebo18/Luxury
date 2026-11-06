@@ -1682,6 +1682,7 @@ export type Database = {
         Returns: boolean
       }
       my_account: { Args: never; Returns: Json }
+      my_service_requests: { Args: never; Returns: Json }
       profile_status: {
         Args: { p: Database["public"]["Tables"]["profiles"]["Row"] }
         Returns: string

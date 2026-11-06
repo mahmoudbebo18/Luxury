@@ -14,6 +14,7 @@ const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
 const Forgot = lazy(() => import('./pages/auth/Forgot'));
 const Reset = lazy(() => import('./pages/auth/Reset'));
+const AccountLayout = lazy(() => import('./pages/account/AccountLayout'));
 const Dashboard = lazy(() => import('./pages/account/Dashboard'));
 const Checkout = lazy(() => import('./pages/account/Checkout'));
 const PaymentResult = lazy(() => import('./pages/account/PaymentResult'));
@@ -58,10 +59,12 @@ export function App() {
                     <Route path="/reset" element={<Reset />} />
                   </Route>
                   <Route element={<AppLayout />}>
-                    <Route path="/account" element={<RequireMember><Dashboard /></RequireMember>} />
-                    <Route path="/account/services" element={<RequireMember><MemberServices /></RequireMember>} />
-                    <Route path="/account/payments" element={<RequireMember><Payments /></RequireMember>} />
-                    <Route path="/account/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+                    <Route path="/account" element={<RequireAuth><AccountLayout /></RequireAuth>}>
+                      <Route index element={<RequireMember><Dashboard /></RequireMember>} />
+                      <Route path="services" element={<RequireMember><MemberServices /></RequireMember>} />
+                      <Route path="payments" element={<RequireMember><Payments /></RequireMember>} />
+                      <Route path="profile" element={<Profile />} />
+                    </Route>
                     <Route path="/checkout" element={<RequireMember><Checkout /></RequireMember>} />
                     <Route path="/payment/result" element={<RequireAuth><PaymentResult /></RequireAuth>} />
                     <Route path="/join/:token" element={<Join kind="invite" />} />

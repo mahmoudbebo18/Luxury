@@ -50,10 +50,9 @@ export function Header() {
       </>
     ) : (
       <>
-        <NavLink to="/account" end className={active}>{t('nav.account')}</NavLink>
-        <NavLink to="/account/services" className={active}>{t('nav.myServices')}</NavLink>
+        <NavLink to="/account" className={active}>{t('nav.account')}</NavLink>
         {isCompanyAdmin && <NavLink to="/company" className={active}>{t('nav.company')}</NavLink>}
-        <NavLink to="/account/profile" className={active}>{t('nav.profile')}</NavLink>
+        <a href={home}>{t('nav.home')}</a>
       </>
     )
   ) : (

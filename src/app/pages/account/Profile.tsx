@@ -76,57 +76,95 @@ export default function Profile() {
 
   const e = formState.errors;
   return (
-    <div className="container page page--narrow">
-      <Link className="back-link" to="/account">
-        <Icon name="arrow" className="icon-back" />
-        {t('nav.account')}
-      </Link>
-      <motion.header className="page-head" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="avatar avatar--lg" aria-hidden="true">{profile.full_name.trim().charAt(0)}</span>
+    <div className="prof">
+      <header className="tab-head">
         <div>
-          <h1>{t('profile.title')}</h1>
+          <h2>{t('profile.title')}</h2>
           <p>{t('profile.lead')}</p>
         </div>
-      </motion.header>
+      </header>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="profile-form">
-        <motion.section className="surface" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}>
-          <h2 className="surface-title"><Icon name="user" />{t('profile.personal')}</h2>
-          <div className="ui-grid">
-            <TextField label={t('profile.name')} icon="user" autoComplete="name" full error={e.full_name?.message} {...register('full_name')} />
-            <TextField label={t('profile.phone')} icon="phone" type="tel" dir="ltr" inputMode="tel" autoComplete="tel" error={e.phone?.message} {...register('phone')} />
-            <TextField label={t('reg.city')} icon="pin" error={e.city?.message} {...register('city')} />
-            <TextField label={t('common.email')} icon="mail" type="email" dir="ltr" value={profile.email} disabled readOnly full hint={t('profile.emailLocked')} />
-          </div>
-        </motion.section>
-
-        <motion.section className="surface" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-          <h2 className="surface-title"><Icon name="globe" />{lang === 'ar' ? 'لغة الرسائل' : 'Email language'}</h2>
-          <SelectField label={lang === 'ar' ? 'اللغة' : 'Language'} icon="globe" {...register('lang')}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="surface prof-main">
+        <h3 className="surface-title"><Icon name="user" />{t('profile.personal')}</h3>
+        <div className="ui-grid">
+          <TextField label={t('profile.name')} icon="user" autoComplete="name" full error={e.full_name?.message} {...register('full_name')} />
+          <TextField label={t('profile.phone')} icon="phone" type="tel" dir="ltr" inputMode="tel" autoComplete="tel" error={e.phone?.message} {...register('phone')} />
+          <TextField label={t('reg.city')} icon="pin" error={e.city?.message} {...register('city')} />
+          <SelectField label={t('profile.langTitle')} icon="globe" hint={t('profile.langHint')} {...register('lang')}>
             <option value="ar">العربية</option>
             <option value="en">English</option>
           </SelectField>
-        </motion.section>
-
+        </div>
         <AnimatePresence>{error && <Alert tone="error">{error}</Alert>}</AnimatePresence>
-
-        <AnimatePresence>
+        <div className="surface-actions">
           {formState.isDirty && (
-            <motion.div className="save-bar" initial={{ y: 80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 80, opacity: 0 }} transition={{ type: 'spring', stiffness: 400, damping: 34 }}>
-              <span>{t('common.save')}?</span>
-              <div>
-                <button type="button" className="btn btn-ghost btn-sm" onClick={() => reset()}>{t('common.cancel')}</button>
-                <button className="btn btn-gold btn-sm" type="submit" disabled={formState.isSubmitting}>
-                  {formState.isSubmitting ? <Spinner small /> : <><Icon name="check" />{t('common.save')}</>}
-                </button>
-              </div>
-            </motion.div>
+            <button type="button" className="btn btn-ghost" onClick={() => reset()}>{t('common.cancel')}</button>
           )}
-        </AnimatePresence>
+          <button className="btn btn-primary" type="submit" disabled={!formState.isDirty || formState.isSubmitting}>
+            {formState.isSubmitting ? <Spinner small /> : <><Icon name="check" />{t('profile.save')}</>}
+          </button>
+        </div>
       </form>
 
-      <ChangePassword email={profile.email} />
+      <div className="prof-side">
+        <ChangeEmail email={profile.email} />
+        <ChangePassword email={profile.email} />
+      </div>
     </div>
+  );
+}
+
+// A new email is confirmed from both mailboxes (secure email change is on in Auth). The profile's
+// email follows auth.users through the on_auth_user_updated trigger once it's confirmed.
+function ChangeEmail({ email }: { email: string }) {
+  const { t } = useT();
+  const { session } = useAuth();
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const pending = session?.user.new_email;
+
+  const schema = z.object({
+    email: z.string().trim().toLowerCase().min(1, t('common.required')).email(t('common.invalidEmail'))
+      .refine((v) => v !== email.toLowerCase(), t('profile.emailSame')),
+  });
+  type Values = z.infer<typeof schema>;
+  const { register, handleSubmit, formState, reset } = useForm<Values>({ resolver: zodResolver(schema), mode: 'onTouched' });
+
+  const onSubmit = async (v: Values) => {
+    setError(null);
+    const { error: err } = await supabase.auth.updateUser(
+      { email: v.email },
+      { emailRedirectTo: `${location.origin}/account/profile` },
+    );
+    if (err) {
+      return setError(err.code === 'email_exists' ? t('profile.emailTaken') : err.status === 429 ? t('auth.rateLimited') : t('common.error'));
+    }
+    reset({ email: '' });
+    setSent(true);
+  };
+
+  return (
+    <section className="surface">
+      <h3 className="surface-title"><Icon name="mail" />{t('profile.emailTitle')}</h3>
+      <p className="surface-lead">{t('profile.emailLead')}</p>
+      <div className="prof-email">
+        <span>{t('profile.currentEmail')}</span>
+        <strong dir="ltr">{email}</strong>
+      </div>
+      {pending && !sent && <p className="prof-pending"><Icon name="clock" />{t('profile.emailPending', { email: pending })}</p>}
+      <form className="ui-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <TextField label={t('profile.newEmail')} icon="mail" type="email" dir="ltr" autoComplete="email" error={formState.errors.email?.message} {...register('email')} />
+        <AnimatePresence>
+          {error && <Alert tone="error">{error}</Alert>}
+          {sent && <Alert tone="success">{t('profile.emailSent')}</Alert>}
+        </AnimatePresence>
+        <div className="surface-actions">
+          <button className="btn btn-primary" type="submit" disabled={formState.isSubmitting}>
+            {formState.isSubmitting ? <Spinner small /> : t('profile.changeEmail')}
+          </button>
+        </div>
+      </form>
+    </section>
   );
 }
 
@@ -171,8 +209,8 @@ function ChangePassword({ email }: { email: string }) {
 
   const e = formState.errors;
   return (
-    <motion.section id="security" className="surface" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-      <h2 className="surface-title"><Icon name="shield" />{t('profile.changePassword')}</h2>
+    <section id="security" className="surface">
+      <h3 className="surface-title"><Icon name="shield" />{t('profile.changePassword')}</h3>
       <p className="surface-lead">{t('profile.changePasswordLead')}</p>
       <form className="ui-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <PasswordField label={t('profile.currentPassword')} icon="lock" autoComplete="current-password" showLabel={t('common.show')} hideLabel={t('common.hide')} error={e.current?.message} {...register('current')} />
@@ -201,6 +239,6 @@ function ChangePassword({ email }: { email: string }) {
           </button>
         </div>
       </form>
-    </motion.section>
+    </section>
   );
 }

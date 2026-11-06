@@ -38,9 +38,10 @@ button.lang-switch {
 }
 .site-footer--compact {
   padding-block: 1.5rem;
+  // The same element is the .container: keep its inline margin and padding.
   .site-footer__bottom {
-    margin: 0;
-    padding: 0;
+    margin-block: 0;
+    padding-block: 0;
     border: 0;
   }
 }
