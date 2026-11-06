@@ -6,6 +6,23 @@ import { renderMarkdown } from './src/lib/markdown';
 
 const root = import.meta.dirname;
 const SITE = 'https://the-luxury-club.com';
+// Share image: preview builds on Cloudflare Pages (any branch but master) point at that deployment,
+// so a link sent before the domain is connected still shows the card.
+const ENV = process.env;
+const ASSET_ORIGIN =
+  ENV.CF_PAGES_URL && ENV.CF_PAGES_BRANCH && ENV.CF_PAGES_BRANCH !== 'master' ? ENV.CF_PAGES_URL.replace(/\/$/, '') : SITE;
+const OG_ALT = {
+  ar: 'The Luxury Club: عضوية واحدة للاستشارات القانونية والمساعدة على الطريق وتأشيرات السفر',
+  en: 'The Luxury Club: one membership for legal advice, roadside assistance and travel visas',
+};
+const ogImage = (lang: 'ar' | 'en') => [
+  `<meta property="og:image" content="${ASSET_ORIGIN}/imgs/og.jpg" />`,
+  '<meta property="og:image:type" content="image/jpeg" />',
+  '<meta property="og:image:width" content="1200" />',
+  '<meta property="og:image:height" content="630" />',
+  `<meta property="og:image:alt" content="${OG_ALT[lang]}" />`,
+  '<meta name="twitter:card" content="summary_large_image" />',
+];
 
 // Every .html file in the root (Arabic) and in en/ (English) is a page. app.html is the React platform.
 const htmlIn = (dir: string) =>
@@ -17,7 +34,7 @@ const pages = [
 
 // Dev-server mirror of Cloudflare Pages: platform routes are served by app.html (public/_redirects),
 // pages are reachable without ".html", and anything else gets the 404 page (en/404 under /en/).
-const appRoutes = /^\/(login|register|forgot|reset|check-email|join|checkout|payment|account|company|v|admin|app)(\/|$|\?)/;
+const appRoutes = /^\/(login|register|forgot|reset|welcome|check-email|join|checkout|payment|account|company|v|admin|app)(\/|$|\?)/;
 function spaFallback(): Plugin {
   const rewrite = (req: { url?: string }, _res: unknown, next: () => void) => {
     const url = req.url ?? '';
@@ -174,7 +191,8 @@ function sitePages(): Plugin {
         html = html.replace(/<!--\s*@include\s+([\w-]+)\s*-->/g, (_m, name: string) =>
           readFileSync(resolve(partials, `${name}.html`), 'utf-8'),
         );
-        if (ctx.filename.endsWith('app.html')) return html;
+        // The platform shell: only the share card (join links get sent on WhatsApp).
+        if (ctx.filename.endsWith('app.html')) return html.replace(/<!--\s*@og\s*-->/, ogImage('ar').join('\n    '));
 
         const { pricing, pages: legal } = await data();
         const page = pagePath(ctx.filename);
@@ -193,6 +211,7 @@ function sitePages(): Plugin {
                 `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
                 `<link rel="alternate" hreflang="x-default" href="${arUrl}" />`,
                 `<meta property="og:url" content="${SITE}${page.path}" />`,
+                ...ogImage(lang),
               ].join('\n    ');
 
         const tokens: Record<string, string> = {

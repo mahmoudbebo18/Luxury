@@ -1,8 +1,7 @@
 // Payments tab: a summary strip, every order in a table (cards on a phone), and a printable receipt
 // for each paid one. ?receipt=<order id> opens that receipt directly (link from the overview).
-import { useQuery } from '@tanstack/react-query';
 import { Link, useSearchParams } from 'react-router-dom';
-import { supabase } from '../../../lib/supabase';
+import { usePricing } from '../../lib/pricing';
 import { useAuth } from '../../auth/AuthProvider';
 import { useT } from '../../i18n';
 import { Icon } from '../../components/Icon';
@@ -111,20 +110,10 @@ export default function Payments() {
   );
 }
 
-type Seller = { seller_name: string; seller_cr: string; seller_vat: string; seller_address: string; vat_rate: number };
-
 function Receipt({ o }: { o: MyOrder }) {
   const { t, lang } = useT();
   const { account } = useAuth();
-  const seller = useQuery({
-    queryKey: ['public-pricing'],
-    queryFn: async () => {
-      const { data, error } = await supabase.rpc('public_pricing');
-      if (error) throw error;
-      return data as unknown as Seller;
-    },
-    staleTime: 10 * 60_000,
-  });
+  const seller = usePricing();
   const s = seller.data;
   const pct = Number(o.subtotal) > 0 ? Math.round((Number(o.vat_amount) / Number(o.subtotal)) * 100) : Math.round(Number(s?.vat_rate ?? 0) * 100);
 

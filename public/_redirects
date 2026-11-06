@@ -19,6 +19,7 @@
 /register/*    /app  200
 /forgot        /app  200
 /reset         /app  200
+/welcome       /app  200
 /check-email   /app  200
 /join/*        /app  200
 /checkout      /app  200

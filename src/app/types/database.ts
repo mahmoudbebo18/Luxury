@@ -1574,6 +1574,7 @@ export type Database = {
         Args: { p_days: number; p_member: string; p_note?: string }
         Returns: string
       }
+      admin_list_admins: { Args: never; Returns: Json }
       admin_mark_refunded: {
         Args: { p_note?: string; p_order: string }
         Returns: undefined
@@ -1591,6 +1592,7 @@ export type Database = {
         Args: { p_member: string; p_note?: string; p_service: string }
         Returns: string
       }
+      admin_remove_admin: { Args: { p_user: string }; Returns: Json }
       admin_save_note: {
         Args: { p_body: string; p_id: string; p_type: string }
         Returns: undefined

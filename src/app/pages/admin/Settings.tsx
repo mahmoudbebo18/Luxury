@@ -2,6 +2,7 @@
 // templates (Arabic + English). Price changes also rebuild the public pages (publish-site).
 import { useEffect, useRef, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { supabase } from '../../../lib/supabase';
 import { AdminTitle } from './AdminLayout';
@@ -16,11 +17,14 @@ import { useToast } from '../../components/Toast';
 import { useConfirm } from '../../components/Modal';
 import type { Tables } from '../../types/database';
 import { emailKind, kindOrder } from '../../lib/emailKinds';
+import { PRICING_KEY } from '../../lib/pricing';
+import { Admins } from './Admins';
 
 type Settings = Tables<'app_settings'>;
 type Template = Tables<'email_templates'>;
 type Tier = { min: number; discount: number };
-type Tab = 'pricing' | 'seller' | 'templates' | 'sender';
+type Tab = 'pricing' | 'seller' | 'templates' | 'sender' | 'admins';
+const TABS: Tab[] = ['pricing', 'seller', 'templates', 'sender', 'admins'];
 
 const VARS: { key: string; label: string; sample: string; only?: string[] }[] = [
   { key: 'name', label: 'الاسم', sample: 'عبدالله الراشد' },
@@ -50,7 +54,11 @@ const VARS: { key: string; label: string; sample: string; only?: string[] }[] = 
 const fillSample = (html: string) => VARS.reduce((s, v) => s.replaceAll(`{{${v.key}}}`, v.sample), html);
 
 export default function SettingsPage() {
-  const [tab, setTab] = useState<Tab>('pricing');
+  // ?tab=admins opens a tab directly (links from elsewhere in the panel)
+  const [params, setParams] = useSearchParams();
+  const fromUrl = params.get('tab') as Tab | null;
+  const tab: Tab = fromUrl && TABS.includes(fromUrl) ? fromUrl : 'pricing';
+  const setTab = (next: Tab) => setParams(next === 'pricing' ? {} : { tab: next }, { replace: true });
   const data = useQuery({
     queryKey: ['admin', 'settings'],
     queryFn: async () => {
@@ -66,7 +74,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <AdminTitle title="الإعدادات" lead="السعر وشرائح الشركات، وبيانات الإيصال، والمرسل، وقوالب الرسائل التلقائية." />
+      <AdminTitle title="الإعدادات" lead="السعر وشرائح الشركات، وبيانات الإيصال، والمرسل، وقوالب الرسائل التلقائية، ومسؤولو النادي." />
       <div className="settings-tabs">
         <Tabs
           value={tab}
@@ -76,10 +84,13 @@ export default function SettingsPage() {
             { value: 'seller', label: 'الإيصال والتحويل', icon: 'receipt' },
             { value: 'templates', label: 'قوالب الرسائل', icon: 'file' },
             { value: 'sender', label: 'المرسل', icon: 'mail' },
+            { value: 'admins', label: 'المسؤولين', icon: 'shield' },
           ]}
         />
       </div>
-      {data.isLoading ? (
+      {tab === 'admins' ? (
+        <Admins />
+      ) : data.isLoading ? (
         <Skeleton rows={3} height={90} />
       ) : data.isError || !data.data ? (
         <ErrorState message="تعذّر تحميل الإعدادات." onRetry={() => data.refetch()} />
@@ -110,6 +121,7 @@ function useSave() {
     }
     toast(ok);
     queryClient.invalidateQueries({ queryKey: ['admin'] });
+    queryClient.invalidateQueries({ queryKey: PRICING_KEY });
     return true;
   };
   return { busy, save };

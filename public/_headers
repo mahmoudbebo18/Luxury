@@ -10,6 +10,8 @@
   X-Robots-Tag: noindex, nofollow
 /reset
   X-Robots-Tag: noindex, nofollow
+/welcome
+  X-Robots-Tag: noindex, nofollow
 /check-email
   X-Robots-Tag: noindex, nofollow
 /join/*

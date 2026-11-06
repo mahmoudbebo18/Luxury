@@ -13,6 +13,7 @@ import { EmptyState, Skeleton } from '../../components/States';
 import { useToast } from '../../components/Toast';
 import { daysLeft, formatDate, formatMoney } from '../../lib/format';
 import { startPayment } from '../account/Checkout';
+import { usePricing, type PublicPricing } from '../../lib/pricing';
 
 type Overview = {
   company: { id: string; company_no: string; legal_name: string; card_name: string; cr_number: string; vat_number: string; city: string; address: string; email_domain: string | null };
@@ -21,7 +22,6 @@ type Overview = {
   invites: { id: string; email: string; full_name: string; phone: string; created_at: string }[];
   orders: { id: string; order_no: string; type: string; quantity: number; total: number; status: string; payment_url: string | null; paid_at: string | null; created_at: string }[];
 };
-type Pricing = { company_min_seats: number; company_online_max: number };
 type Quote = { total: number; subtotal: number; vat_amount: number; unit_price: number; discount_pct: number; months: number | null; online: boolean };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
@@ -44,10 +44,7 @@ export default function Company() {
       return data as unknown as Overview;
     },
   });
-  const pricing = useQuery({
-    queryKey: ['pricing'],
-    queryFn: async () => (await supabase.rpc('public_pricing')).data as unknown as Pricing,
-  });
+  const pricing = usePricing();
   const refresh = () => qc.invalidateQueries({ queryKey: ['company', companyId] });
 
   if (!companyId) return null;
@@ -249,7 +246,7 @@ function BuyModal({ type, companyId, contract, pricing, onClose, onDone }: {
   type: 'company_new' | 'company_add_seats' | 'company_renew';
   companyId: string;
   contract: Overview['contract'];
-  pricing: Pricing;
+  pricing: PublicPricing;
   onClose: () => void;
   onDone: () => void;
 }) {

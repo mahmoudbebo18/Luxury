@@ -14,6 +14,7 @@ const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
 const Forgot = lazy(() => import('./pages/auth/Forgot'));
 const Reset = lazy(() => import('./pages/auth/Reset'));
+const Welcome = lazy(() => import('./pages/auth/Welcome'));
 const AccountLayout = lazy(() => import('./pages/account/AccountLayout'));
 const Dashboard = lazy(() => import('./pages/account/Dashboard'));
 const Checkout = lazy(() => import('./pages/account/Checkout'));
@@ -57,6 +58,7 @@ export function App() {
                     <Route path="/register/business" element={<Register />} />
                     <Route path="/forgot" element={<Forgot />} />
                     <Route path="/reset" element={<Reset />} />
+                    <Route path="/welcome" element={<Welcome />} />
                   </Route>
                   <Route element={<AppLayout />}>
                     <Route path="/account" element={<RequireAuth><AccountLayout /></RequireAuth>}>

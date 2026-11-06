@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { AnimatePresence, motion } from 'motion/react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '../../../lib/supabase';
 import { useT } from '../../i18n';
 import { useAuth } from '../../auth/AuthProvider';
@@ -16,6 +16,7 @@ import { Icon } from '../../components/Icon';
 import { PasswordStrength } from '../../components/PasswordStrength';
 import { Spinner } from '../../components/PageLoader';
 import { PHONE_RE, cleanPhone, passwordChecks } from '../../lib/options';
+import { readPricingNow, usePricing } from '../../lib/pricing';
 import { AuthHead, AuthSwitch } from './AuthShell';
 import { CheckEmail } from './CheckEmail';
 
@@ -28,6 +29,8 @@ export default function Register() {
   const { t, lang } = useT();
   const { session } = useAuth();
   const navigate = useNavigate();
+  const qc = useQueryClient();
+  const pricing = usePricing();
   const { pathname } = useLocation();
   const [params] = useSearchParams();
   const inviteToken = params.get('invite');
@@ -120,7 +123,7 @@ export default function Register() {
               <span className="kind-option__icon"><Icon name={k === 'business' ? 'building' : 'user'} /></span>
               <span className="kind-option__text">
                 <strong>{t(k === 'business' ? 'reg.business' : 'reg.individual')}</strong>
-                <small>{t(k === 'business' ? 'reg.businessLead' : 'reg.individualLead')}</small>
+                <small>{k === 'business' ? t('reg.businessLead') : t('reg.individualLead', { price: pricing.priceText })}</small>
               </span>
               <Icon name="arrow" className="icon-flip kind-option__arrow" />
             </button>
@@ -148,8 +151,7 @@ export default function Register() {
   const onSubmit = async (v: Values) => {
     setStatus(null);
     const email = v.email.trim().toLowerCase();
-    const { data: pricing } = await supabase.rpc('public_pricing');
-    const termsVersion = (pricing as { terms_version?: number } | null)?.terms_version ?? 1;
+    const termsVersion = (await readPricingNow(qc).catch(() => null))?.terms_version ?? 1;
     const redirect = kind === 'invite' ? `/join/${inviteToken}` : isBiz ? '/company' : '/checkout';
     const { data, error } = await supabase.auth.signUp({
       email,

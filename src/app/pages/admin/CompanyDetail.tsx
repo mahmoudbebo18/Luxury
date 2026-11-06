@@ -14,6 +14,7 @@ import { EmptyState, ErrorState } from '../../components/States';
 import { PageLoader, Spinner } from '../../components/PageLoader';
 import { useToast } from '../../components/Toast';
 import { daysLeft, formatDate, formatDateTime } from '../../lib/format';
+import { usePricing } from '../../lib/pricing';
 
 type Overview = {
   company: { id: string; company_no: string; legal_name: string; card_name: string; cr_number: string; vat_number: string; city: string; address: string; email_domain: string | null };
@@ -40,28 +41,29 @@ export default function CompanyDetail() {
   const data = useQuery({
     queryKey: ['admin', 'company', id],
     queryFn: async () => {
-      const [ov, notes, pricing] = await Promise.all([
+      const [ov, notes] = await Promise.all([
         supabase.rpc('company_overview', { p_company: id }),
         supabase.from('admin_notes').select('body, updated_at').eq('entity_type', 'company').eq('entity_id', id).maybeSingle(),
-        supabase.rpc('public_pricing'),
       ]);
       if (ov.error) throw ov.error;
       return {
         ov: ov.data as unknown as Overview,
         note: notes.data?.body ?? '',
         noteAt: notes.data?.updated_at ?? null,
-        price: Number((pricing.data as { price_individual?: number } | null)?.price_individual ?? 699),
       };
     },
   });
+
+  const pricing = usePricing();
 
   useEffect(() => {
     if (data.data && note === null) setNote(data.data.note);
   }, [data.data, note]);
 
-  if (data.isLoading) return <PageLoader />;
-  if (data.isError || !data.data?.ov?.company?.id) return <ErrorState message="تعذّر تحميل الشركة." onRetry={() => data.refetch()} />;
-  const { ov, price } = data.data;
+  if (data.isLoading || pricing.isLoading) return <PageLoader />;
+  if (data.isError || !data.data?.ov?.company?.id || !pricing.data) return <ErrorState message="تعذّر تحميل الشركة." onRetry={() => { data.refetch(); pricing.refetch(); }} />;
+  const { ov } = data.data;
+  const price = Number(pricing.data.price_individual);
   const { company: co, contract: ct } = ov;
   const state = contractState({ contract_status: ct?.status ?? null, expires_at: ct?.expires_at ?? null });
   const active = state === 'active';

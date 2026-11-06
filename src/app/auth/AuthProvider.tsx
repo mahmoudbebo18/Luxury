@@ -34,6 +34,8 @@ type Ctx = {
   ready: boolean;
   /** True after arriving from a password-recovery email link (only then may /reset set a password). */
   recovery: boolean;
+  /** True after arriving from an admin invitation link (only then may /welcome set a password). */
+  invited: boolean;
   account: Account | null | undefined; // undefined while loading
   isAdmin: boolean;
   isCompanyAdmin: boolean;
@@ -45,11 +47,13 @@ const AuthContext = createContext<Ctx | null>(null);
 
 // supabase-js reads the recovery link from the URL hash before React subscribes, so remember it here.
 const arrivedWithRecovery = /type=recovery/.test(location.hash);
+const arrivedWithInvite = /type=invite/.test(location.hash);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [ready, setReady] = useState(false);
   const [recovery, setRecovery] = useState(arrivedWithRecovery);
+  const [invited, setInvited] = useState(arrivedWithInvite);
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -59,7 +63,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const { data } = supabase.auth.onAuthStateChange((event, next) => {
       if (event === 'PASSWORD_RECOVERY') setRecovery(true);
-      if (event === 'SIGNED_OUT') setRecovery(false);
+      if (event === 'SIGNED_OUT') {
+        setRecovery(false);
+        setInvited(false);
+      }
       setSession(next);
       setReady(true);
     });
@@ -88,6 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         session,
         ready,
         recovery,
+        invited,
         account: userId ? account : null,
         isAdmin: account?.role === 'admin',
         isCompanyAdmin: (account?.companies.length ?? 0) > 0,

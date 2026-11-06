@@ -5,10 +5,12 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useT } from '../../i18n';
 import { Icon } from '../../components/Icon';
 import { PageLoader } from '../../components/PageLoader';
+import { usePricing } from '../../lib/pricing';
 
 export function AuthLayout() {
   const { t, lang, setLang } = useT();
   const location = useLocation();
+  const pricing = usePricing();
   const home = lang === 'en' ? '/en/' : '/';
 
   return (
@@ -37,7 +39,7 @@ export function AuthLayout() {
               </motion.li>
             ))}
           </ul>
-          <p className="auth-price">{t('aside.price')}</p>
+          {pricing.data && <p className="auth-price">{t('aside.price', { price: pricing.priceText })}</p>}
         </div>
       </aside>
 

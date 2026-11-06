@@ -10,6 +10,7 @@ import { Modal } from '../../components/Modal';
 import { MemberCard, verifyUrl } from '../../components/MemberCard';
 import { daysLeft, formatDate, formatMoney } from '../../lib/format';
 import { anchorOf, pick } from '../../lib/services';
+import { usePricing } from '../../lib/pricing';
 import { methodLabel, orderLabel, statusLabel, useMyOrders, useMyServices } from './shared';
 
 export default function Dashboard() {
@@ -20,6 +21,7 @@ export default function Dashboard() {
   const [saving, setSaving] = useState(false);
   const services = useMyServices();
   const orders = useMyOrders();
+  const pricing = usePricing();
 
   if (!account) return null;
   const m = account.membership;
@@ -73,7 +75,7 @@ export default function Dashboard() {
         <section className="acct-note acct-note--pay ov-join">
           <div>
             <strong>{t('account.payTitle')}</strong>
-            <p>{t('account.payLead')}</p>
+            <p>{t('account.payLead', { price: pricing.priceText })}</p>
           </div>
           <Link className="btn btn-gold btn-lg" to="/checkout">
             {t('account.payBtn')} <Icon name="arrow" className="icon-flip" />
