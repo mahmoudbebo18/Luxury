@@ -214,7 +214,7 @@ button.lang-switch {
   gap: 1.5rem;
   margin-bottom: 2.5rem;
   @include up($lg) {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(320px, 420px) 1fr;
     align-items: start;
   }
 }
@@ -244,7 +244,13 @@ button.lang-switch {
 }
 
 .member-card--app {
-  --card-w: min(380px, 100%);
+  --card-w: 100%;
+  max-width: 400px;
+  padding: 1.1rem 1.25rem;
+  .member-card__bottom > div {
+    display: grid;
+    gap: 2px;
+  }
   &.is-inactive {
     filter: grayscale(0.7);
     opacity: 0.7;

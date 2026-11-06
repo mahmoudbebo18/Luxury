@@ -35,7 +35,8 @@ export default function Checkout() {
 
   if (!account) return null;
   const renewing = account.status === 'active' || account.status === 'expired';
-  const startsAt = account.membership?.kind === 'individual' && account.status === 'active' ? account.membership.expires_at : null;
+  // A renewal starts after the last paid individual year (which may itself be an early renewal).
+  const startsAt = account.membership?.kind === 'individual' && account.status === 'active' ? account.last_expires_at ?? account.membership.expires_at : null;
   const endsAt = new Date(new Date(startsAt ?? Date.now()).getTime() + 365 * 86_400_000).toISOString();
   const base = lang === 'en' ? '/en' : '';
   const q = quote.data;
